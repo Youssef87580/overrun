@@ -1,12 +1,50 @@
 [gd_scene format=3 uid="uid://crudc3oqeq10l"]
 
 [ext_resource type="Script" uid="uid://dlqyf4fwq2x2p" path="res://scripts/title screen.gd" id="1_5p55f"]
+[ext_resource type="FontFile" uid="uid://djwlv3y6q6dkn" path="res://fonts/PressStart2P-Regular.ttf" id="2_r67kn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brbbq"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.16470589, 0.101960786, 0.101960786, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.76862746, 0.627451, 0.20784314, 1)
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8n18e"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.05882353, 0.05882353, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.627451, 0.5019608, 0.1254902, 1)
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r67kn"]
+bg_color = Color(0.22745098, 0.16470589, 0.16470589, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8784314, 0.7529412, 0.3137255, 1)
+corner_detail = 5
 
 [node name="Control" type="Control" unique_id=1747957665]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_5p55f")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1436247061]
@@ -14,19 +52,57 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1322296462]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=255470700]
+layout_mode = 1
+offset_right = 1155.0
+offset_bottom = 650.0
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=1002036226]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1322296462]
 layout_mode = 2
+theme_override_constants/separation = 15
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=1755626884]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1002036226]
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("2_r67kn")
+theme_override_font_sizes/font_size = 72
+text = "overrun"
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=29903024]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=1204743238]
 layout_mode = 2
+theme_override_constants/margin_top = 60
 
-[node name="Button3" type="Button" parent="VBoxContainer" unique_id=2091234082]
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1755626884]
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
+theme_override_constants/h_separation = 40
+theme_override_fonts/font = ExtResource("2_r67kn")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_brbbq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8n18e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r67kn")
+text = "start"
+
+[node name="Button2" type="Button" parent="CenterContainer/VBoxContainer" unique_id=29903024]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_constants/h_separation = 40
+theme_override_fonts/font = ExtResource("2_r67kn")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_brbbq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8n18e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r67kn")
+text = "options"
+
+[node name="Button3" type="Button" parent="CenterContainer/VBoxContainer" unique_id=2091234082]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_constants/h_separation = 40
+theme_override_fonts/font = ExtResource("2_r67kn")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_brbbq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8n18e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r67kn")
+text = "quit"

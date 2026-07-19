@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dtvlukyl3tl81"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_txh2y"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1788484758]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1315340822]
+sprite_frames = SubResource("SpriteFrames_txh2y")

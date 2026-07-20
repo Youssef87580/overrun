@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dtvlukyl3tl81" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://dnqstuj8rkuwv" path="res://scenes/level 1 .tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://dshw1opwhn3dk" path="res://scenes/button.tscn" id="3_lnu2h"]
 
 [node name="Game" type="Node2D" unique_id=2063107461]
 
@@ -13,3 +14,6 @@ zoom = Vector2(3, 3)
 
 [node name="TileMap" parent="." unique_id=1167224674 instance=ExtResource("2_yqjtg")]
 position = Vector2(285, 277)
+
+[node name="button" parent="." unique_id=1034766941 instance=ExtResource("3_lnu2h")]
+position = Vector2(650, 380)

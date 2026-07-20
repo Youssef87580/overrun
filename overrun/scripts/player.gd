@@ -7,8 +7,10 @@ extends CharacterBody2D
 @export var coyote_time: float = 0.1
 var coyote_timer: float = 0.0 
 var gravity_direction: int = 1
+var clone_instance: Node = null 
 
 func _physics_process(delta: float) -> void: 
+	handle_clone_spawn()
 	handle_gravity_flip()
 	up_direction = Vector2(0, -gravity_direction)
 	apply_gravity(delta)
@@ -43,3 +45,16 @@ func handle_horizontal_movement(delta: float) -> void:
 		velocity.x = direction  * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed * delta * 10)
+
+func handle_clone_spawn() -> void:
+	if Input.is_action_just_pressed("spawn_clone"):
+		if clone_instance == null:
+			clone_instance = self.duplicate()
+			clone_instance.position = position
+			get_parent().add_child(clone_instance)
+			clone_instance.set_physics_process(false)
+			clone_instance.set_process_input(false)
+			clone_instance.set_script(null)
+		else:
+			clone_instance.queue_free()
+			clone_instance = null

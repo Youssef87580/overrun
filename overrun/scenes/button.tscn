@@ -43,7 +43,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"press",
-"speed": 10.0
+"speed": 20.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_txh2y"]

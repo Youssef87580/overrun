@@ -23,7 +23,9 @@ func _on_body_entered(body: Node2D) -> void:
 		_play_press()
 
 func _on_body_exited(body: Node2D) -> void :
+	await get_tree().process_frame
 	var bodies = area.get_overlapping_bodies()  
+	var player_bodies = bodies.filter(func(b): return b is CharacterBody2D)
 	if bodies.size() == 0 and is_pressed:
 		is_pressed = false
 		released.emit()

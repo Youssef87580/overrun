@@ -16,4 +16,4 @@ zoom = Vector2(2, 2)
 position = Vector2(285, 277)
 
 [node name="button" parent="." unique_id=1034766941 instance=ExtResource("3_lnu2h")]
-position = Vector2(696, 353)
+position = Vector2(718, 372)

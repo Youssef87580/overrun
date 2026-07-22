@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://s6vasibn0b6x"]
+
+[ext_resource type="Texture2D" uid="uid://be013esullwrx" path="res://assets/purple phase shifter recharge-Sheet-Sheet.png" id="1_l7bep"]
+[ext_resource type="Texture2D" uid="uid://ce07xc6oum1lt" path="res://assets/purple phase shifter use -Sheet.png" id="1_ymrnx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkwjj"]
+atlas = ExtResource("1_l7bep")
+region = Rect2(0, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4vne"]
+atlas = ExtResource("1_l7bep")
+region = Rect2(24, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15k00"]
+atlas = ExtResource("1_l7bep")
+region = Rect2(48, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aypkh"]
+atlas = ExtResource("1_l7bep")
+region = Rect2(72, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1eleo"]
+atlas = ExtResource("1_l7bep")
+region = Rect2(96, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7bep"]
+atlas = ExtResource("1_ymrnx")
+region = Rect2(0, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uceao"]
+atlas = ExtResource("1_ymrnx")
+region = Rect2(24, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dj6ql"]
+atlas = ExtResource("1_ymrnx")
+region = Rect2(48, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wyqs"]
+atlas = ExtResource("1_ymrnx")
+region = Rect2(72, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghs2f"]
+atlas = ExtResource("1_ymrnx")
+region = Rect2(96, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2edsj"]
+atlas = ExtResource("1_ymrnx")
+region = Rect2(120, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2222"]
+atlas = ExtResource("1_ymrnx")
+region = Rect2(144, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdgqh"]
+atlas = ExtResource("1_ymrnx")
+region = Rect2(168, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyrpo"]
+atlas = ExtResource("1_ymrnx")
+region = Rect2(192, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f08ll"]
+atlas = ExtResource("1_ymrnx")
+region = Rect2(216, 0, 24, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vy8w1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkwjj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4vne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15k00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aypkh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1eleo")
+}],
+"loop": 0,
+"name": &"recharge ",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7bep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uceao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dj6ql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wyqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghs2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2edsj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2222")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdgqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyrpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f08ll")
+}],
+"loop": 0,
+"name": &"use",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_txh2y"]
+
+[node name="phase shift" type="Node2D" unique_id=110973253]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=726581281]
+sprite_frames = SubResource("SpriteFrames_vy8w1")
+animation = &"use"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=850407385]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=336915304]
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1068752162]
+sprite_frames = SubResource("SpriteFrames_txh2y")

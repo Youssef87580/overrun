@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
+
 @export var speed : float = 200.0
 @export var maximum_jumps := 1
 @export var jump_velocity  : float = -250.0
 @export var gravity: float = 980.0
 @export var coyote_time: float = 0.1
-@export var phase_duration: float = 2.0
-@export var phase_cooldown: float = 3.0
+@export var phase_duration: float = 3.0
+@export var phase_cooldown: float = 1.5
+
 var coyote_timer: float = 0.0 
 var gravity_direction: int = 1
 var clone_instance: Node = null 
@@ -68,13 +70,31 @@ func handle_clone_spawn() -> void:
 func handle_phase_shift() -> void:
 	if cooldown_timer > 0:
 		cooldown_timer -= get_physics_process_delta_time()
+		if cooldown_timer < 0:
+			cooldown_timer = 0.0
+			
+		var progress := 1.0 - (cooldown_timer / phase_cooldown)
+		AbilityHUD.phase_ability.set_recharge_progress(progress)
+		
+	elif not is_phased:
+		AbilityHUD.phase_ability.set_recharge_progress(1.0)
+		cooldown_timer = 0.0
+		
+		
 	if cooldown_timer <= 0 and not is_phased and Input.is_action_just_pressed("phase_shift"):
 		is_phased = true
 		phase_timer = phase_duration
 		modulate.a = 0.5
+		AbilityHUD.play_use()
+		
 	if is_phased:
 		phase_timer -= get_physics_process_delta_time()
+		
+		if not AbilityHUD.phase_ability.use_sprite.is_playing():
+			AbilityHUD.phase_ability.hold_use_frame()
+		
 		if phase_timer <= 0:
 			is_phased = false 
 			modulate.a = 1.0
 			cooldown_timer = phase_cooldown
+			AbilityHUD.play_recharge()

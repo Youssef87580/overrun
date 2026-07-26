@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bjeur0hjv20w8"]
+
+[ext_resource type="Script" uid="uid://v2u1dav5wh0u" path="res://remap.gd" id="1_yjjrf"]
+
+[node name="Control" type="Control" unique_id=1862623596]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_yjjrf")
+
+[node name="Panel" type="Panel" parent="." unique_id=537004114]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=266385681]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer" unique_id=945474629]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer" unique_id=338320244]
+layout_mode = 2
+
+[node name="ActionList" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer" unique_id=1501547752]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1350658280]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer" unique_id=721834505]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer/Button" unique_id=1025718173]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0

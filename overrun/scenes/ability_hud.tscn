@@ -1,3 +1,147 @@
 [gd_scene format=3 uid="uid://l7a630pxea6q"]
 
-[node name="ability hud" type="CanvasLayer" unique_id=1395538179]
+[ext_resource type="Texture2D" uid="uid://ce07xc6oum1lt" path="res://assets/purple phase shifter use -Sheet.png" id="1_3mubh"]
+[ext_resource type="Script" uid="uid://cvg85tv0bdgro" path="res://scripts/phase_ability.gd" id="1_5eoas"]
+[ext_resource type="Script" uid="uid://lbanho2edl7j" path="res://scenes/ability_hud.gd" id="1_rtmn5"]
+[ext_resource type="Texture2D" uid="uid://be013esullwrx" path="res://assets/purple phase shifter recharge-Sheet-Sheet.png" id="2_5eoas"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtmn5"]
+atlas = ExtResource("1_3mubh")
+region = Rect2(0, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4wkg"]
+atlas = ExtResource("1_3mubh")
+region = Rect2(24, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvv3b"]
+atlas = ExtResource("1_3mubh")
+region = Rect2(48, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ugoe"]
+atlas = ExtResource("1_3mubh")
+region = Rect2(72, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5s8k"]
+atlas = ExtResource("1_3mubh")
+region = Rect2(96, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsf8m"]
+atlas = ExtResource("1_3mubh")
+region = Rect2(120, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_px8d0"]
+atlas = ExtResource("1_3mubh")
+region = Rect2(144, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjtu3"]
+atlas = ExtResource("1_3mubh")
+region = Rect2(168, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6n4fk"]
+atlas = ExtResource("1_3mubh")
+region = Rect2(192, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hyp8"]
+atlas = ExtResource("1_3mubh")
+region = Rect2(216, 0, 24, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g850r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtmn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4wkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvv3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ugoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5s8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsf8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_px8d0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjtu3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6n4fk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hyp8")
+}],
+"loop": 0,
+"name": &"use",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a04g"]
+atlas = ExtResource("2_5eoas")
+region = Rect2(0, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x87ex"]
+atlas = ExtResource("2_5eoas")
+region = Rect2(24, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4t0u"]
+atlas = ExtResource("2_5eoas")
+region = Rect2(48, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k074a"]
+atlas = ExtResource("2_5eoas")
+region = Rect2(72, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkkd0"]
+atlas = ExtResource("2_5eoas")
+region = Rect2(96, 0, 24, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5eoas"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8a04g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x87ex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4t0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k074a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkkd0")
+}],
+"loop": 0,
+"name": &"recharge",
+"speed": 1.0
+}]
+
+[node name="hud" type="CanvasLayer" unique_id=1395538179]
+script = ExtResource("1_rtmn5")
+
+[node name="PhaseAbility" type="Node2D" parent="." unique_id=1275963189]
+script = ExtResource("1_5eoas")
+
+[node name="UseSprite" type="AnimatedSprite2D" parent="PhaseAbility" unique_id=1854579489]
+position = Vector2(596, 66.00002)
+scale = Vector2(3.555, 4)
+sprite_frames = SubResource("SpriteFrames_g850r")
+animation = &"use"
+
+[node name="RechargeSprite" type="AnimatedSprite2D" parent="PhaseAbility" unique_id=1081316209]
+position = Vector2(596, 66)
+scale = Vector2(3.555, 4)
+sprite_frames = SubResource("SpriteFrames_5eoas")
+animation = &"recharge"
+frame = 3
+frame_progress = 1.0

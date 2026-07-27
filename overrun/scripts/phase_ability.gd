@@ -9,7 +9,6 @@ func _ready() -> void:
 	set_recharge_progress(1.0) 
 
 func play_use() -> void:
-	print("play_use_called")
 	recharge_sprite.visible = false
 	use_sprite.visible = true
 	use_sprite.frame = 0
@@ -21,7 +20,6 @@ func hold_use_frame() -> void:
 		use_sprite.frame = use_sprite.sprite_frames.get_frame_count("use") - 1
 
 func play_recharge() -> void:
-	print("play_recharg_called")
 	use_sprite.visible = false
 	recharge_sprite.visible = true
 	recharge_sprite.frame = 0
@@ -30,7 +28,6 @@ func play_recharge() -> void:
 
 func set_recharge_progress(progress: float) -> void:
 	var frame_count := recharge_sprite.sprite_frames.get_frame_count("recharge")
-	print("recharge frame count: ", frame_count)
 	if frame_count <= 1:
 		recharge_sprite.frame = 0 
 		return
@@ -39,11 +36,9 @@ func set_recharge_progress(progress: float) -> void:
 	if progress >= 1.0:
 		target_frame = frame_count - 1
 		recharge_sprite.frame = target_frame
-		print("FULL CHARGE: setting frame to ", target_frame)
 	else:
 		target_frame = clampi(int(progress * (frame_count - 	1)), 0, frame_count - 2)
 		recharge_sprite.frame = target_frame 
-		print("progress: ", progress, "-> frame: ", target_frame)
 
 
 func hide_all() -> void:

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ce07xc6oum1lt" path="res://assets/purple phase shifter use -Sheet.png" id="1_3mubh"]
 [ext_resource type="Script" uid="uid://cvg85tv0bdgro" path="res://scripts/phase_ability.gd" id="1_5eoas"]
-[ext_resource type="Script" uid="uid://lbanho2edl7j" path="res://scenes/ability_hud.gd" id="1_rtmn5"]
+[ext_resource type="Script" uid="uid://lbanho2edl7j" path="res://scripts/ability_hud.gd" id="1_rtmn5"]
 [ext_resource type="Texture2D" uid="uid://be013esullwrx" path="res://assets/purple phase shifter recharge-Sheet-Sheet.png" id="2_5eoas"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rtmn5"]
@@ -133,13 +133,13 @@ script = ExtResource("1_rtmn5")
 script = ExtResource("1_5eoas")
 
 [node name="UseSprite" type="AnimatedSprite2D" parent="PhaseAbility" unique_id=1854579489]
-position = Vector2(596, 66.00002)
+position = Vector2(1237.66, 167.00003)
 scale = Vector2(3.555, 4)
 sprite_frames = SubResource("SpriteFrames_g850r")
 animation = &"use"
 
 [node name="RechargeSprite" type="AnimatedSprite2D" parent="PhaseAbility" unique_id=1081316209]
-position = Vector2(596, 66)
+position = Vector2(1237.66, 167)
 scale = Vector2(3.555, 4)
 sprite_frames = SubResource("SpriteFrames_5eoas")
 animation = &"recharge"

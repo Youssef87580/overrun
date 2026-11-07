@@ -221,6 +221,7 @@ script = ExtResource("1_g2els")
 gravity = 600.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1315340822]
+texture_filter = 1
 position = Vector2(10, -12)
 sprite_frames = SubResource("SpriteFrames_txh2y")
 animation = &"idel"
@@ -237,12 +238,14 @@ shape = SubResource("RectangleShape2D_txh2y")
 script = SubResource("GDScript_dqkch")
 
 [node name="UseSprite" type="AnimatedSprite2D" parent="hud/PhaseAbility" unique_id=1414257812]
+texture_filter = 1
 position = Vector2(67.660034, 32.00003)
 scale = Vector2(3.555, 4)
 sprite_frames = SubResource("SpriteFrames_qlg0r")
 animation = &"use"
 
 [node name="RechargeSprite" type="AnimatedSprite2D" parent="hud/PhaseAbility" unique_id=836930531]
+texture_filter = 1
 position = Vector2(67.660034, 32)
 scale = Vector2(3.555, 4)
 sprite_frames = SubResource("SpriteFrames_tuyoq")

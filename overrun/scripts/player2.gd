@@ -8,7 +8,7 @@ extends CharacterBody2D
 @export var coyote_time: float = 0.1
 @export var phase_duration: float = 3.0
 @export var phase_cooldown: float = 1.5
-@onready var phase_ability  = $hud/PhaseAbility
+@onready var phase_ability  = $"../../../../SubViewportContainer2/SubViewport/hud2/PhaseAbility" #$hud/PhaseAbility
 
 var coyote_timer: float = 0.0 
 var gravity_direction: int = 1

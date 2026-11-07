@@ -1,0 +1,245 @@
+[gd_scene format=3 uid="uid://cv8y5alf704t2"]
+
+[ext_resource type="PackedScene" uid="uid://cn4cdlcend0sa" path="res://scenes/game.tscn" id="1_ahfsy"]
+[ext_resource type="Script" uid="uid://by48a2sme0in0" path="res://scripts/split_screen.gd" id="1_c5m37"]
+[ext_resource type="Texture2D" uid="uid://ce07xc6oum1lt" path="res://assets/purple phase shifter use -Sheet.png" id="3_b2tsv"]
+[ext_resource type="Texture2D" uid="uid://be013esullwrx" path="res://assets/purple phase shifter recharge-Sheet-Sheet.png" id="4_utmev"]
+
+[sub_resource type="GDScript" id="GDScript_dqkch"]
+script/source = "extends Node2D
+
+@onready var use_sprite: AnimatedSprite2D = $UseSprite
+@onready var recharge_sprite: AnimatedSprite2D = $RechargeSprite
+
+func _ready() -> void:
+	use_sprite.visible = false 
+	recharge_sprite.visible = true
+	set_recharge_progress(1.0) 
+
+func play_use() -> void:
+	recharge_sprite.visible = false
+	use_sprite.visible = true
+	use_sprite.frame = 0
+	use_sprite.play(\"use\")
+
+func hold_use_frame() -> void:
+	if use_sprite.is_playing():
+		use_sprite.pause()
+		use_sprite.frame = use_sprite.sprite_frames.get_frame_count(\"use\") - 1
+
+func play_recharge() -> void:
+	use_sprite.visible = false
+	recharge_sprite.visible = true
+	recharge_sprite.frame = 0
+	recharge_sprite.play(\"recharge\")
+	recharge_sprite.pause()
+
+func set_recharge_progress(progress: float) -> void:
+	var frame_count := recharge_sprite.sprite_frames.get_frame_count(\"recharge\")
+	if frame_count <= 1:
+		recharge_sprite.frame = 0 
+		return
+	progress = clampf(progress, 0.0, 1.0)
+	var target_frame : int
+	if progress >= 1.0:
+		target_frame = frame_count - 1
+		recharge_sprite.frame = target_frame
+	else:
+		target_frame = clampi(int(progress * (frame_count - 	1)), 0, frame_count - 2)
+		recharge_sprite.frame = target_frame 
+
+
+func hide_all() -> void:
+	use_sprite.visible = false
+	recharge_sprite.visible = false
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtmn5"]
+atlas = ExtResource("3_b2tsv")
+region = Rect2(0, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4wkg"]
+atlas = ExtResource("3_b2tsv")
+region = Rect2(24, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvv3b"]
+atlas = ExtResource("3_b2tsv")
+region = Rect2(48, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ugoe"]
+atlas = ExtResource("3_b2tsv")
+region = Rect2(72, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5s8k"]
+atlas = ExtResource("3_b2tsv")
+region = Rect2(96, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsf8m"]
+atlas = ExtResource("3_b2tsv")
+region = Rect2(120, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_px8d0"]
+atlas = ExtResource("3_b2tsv")
+region = Rect2(144, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjtu3"]
+atlas = ExtResource("3_b2tsv")
+region = Rect2(168, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6n4fk"]
+atlas = ExtResource("3_b2tsv")
+region = Rect2(192, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hyp8"]
+atlas = ExtResource("3_b2tsv")
+region = Rect2(216, 0, 24, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qlg0r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtmn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4wkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvv3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ugoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5s8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsf8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_px8d0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjtu3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6n4fk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hyp8")
+}],
+"loop": 0,
+"name": &"use",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a04g"]
+atlas = ExtResource("4_utmev")
+region = Rect2(0, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x87ex"]
+atlas = ExtResource("4_utmev")
+region = Rect2(24, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4t0u"]
+atlas = ExtResource("4_utmev")
+region = Rect2(48, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k074a"]
+atlas = ExtResource("4_utmev")
+region = Rect2(72, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkkd0"]
+atlas = ExtResource("4_utmev")
+region = Rect2(96, 0, 24, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuyoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8a04g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x87ex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4t0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k074a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkkd0")
+}],
+"loop": 0,
+"name": &"recharge",
+"speed": 1.0
+}]
+
+[node name="SplitScreen" type="Node" unique_id=1667793410]
+script = ExtResource("1_c5m37")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1825283227]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer" unique_id=311821584]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer" unique_id=490347212]
+handle_input_locally = false
+msaa_2d = 2
+use_hdr_2d = true
+size = Vector2i(1080, 1080)
+render_target_update_mode = 4
+
+[node name="Game" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=2063107461 instance=ExtResource("1_ahfsy")]
+
+[node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=2066996775]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer" unique_id=688816801]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer2" unique_id=269290725]
+handle_input_locally = false
+msaa_2d = 2
+use_hdr_2d = true
+size = Vector2i(1080, 1080)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer2/SubViewport" unique_id=1183477987]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="hud2" type="CanvasLayer" parent="HBoxContainer/SubViewportContainer2/SubViewport" unique_id=2102811235]
+
+[node name="PhaseAbility" type="Node2D" parent="HBoxContainer/SubViewportContainer2/SubViewport/hud2" unique_id=628619070]
+script = SubResource("GDScript_dqkch")
+
+[node name="UseSprite" type="AnimatedSprite2D" parent="HBoxContainer/SubViewportContainer2/SubViewport/hud2/PhaseAbility" unique_id=1720168247]
+texture_filter = 1
+position = Vector2(1025.6599, 42.00003)
+scale = Vector2(3.555, 4)
+sprite_frames = SubResource("SpriteFrames_qlg0r")
+animation = &"use"
+
+[node name="RechargeSprite" type="AnimatedSprite2D" parent="HBoxContainer/SubViewportContainer2/SubViewport/hud2/PhaseAbility" unique_id=1535298177]
+texture_filter = 1
+position = Vector2(1025.6599, 42)
+scale = Vector2(3.555, 4)
+sprite_frames = SubResource("SpriteFrames_tuyoq")
+animation = &"recharge"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1848735584]
+offset_left = 1080.0
+offset_right = 1090.0
+offset_bottom = 1080.0
+color = Color(1, 0.51858807, 0.2560137, 1)
+
+[editable path="HBoxContainer/SubViewportContainer/SubViewport/Game"]
+[editable path="HBoxContainer/SubViewportContainer/SubViewport/Game/player"]
+[editable path="HBoxContainer/SubViewportContainer/SubViewport/Game/player2"]

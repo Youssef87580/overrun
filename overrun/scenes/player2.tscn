@@ -220,6 +220,7 @@ collision_mask = 5
 script = ExtResource("1_dj65e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1315340822]
+texture_filter = 1
 position = Vector2(10, -12)
 sprite_frames = SubResource("SpriteFrames_txh2y")
 animation = &"idel"
@@ -236,13 +237,15 @@ shape = SubResource("RectangleShape2D_txh2y")
 script = SubResource("GDScript_dqkch")
 
 [node name="UseSprite" type="AnimatedSprite2D" parent="hud/PhaseAbility" unique_id=1414257812]
-position = Vector2(1236.66, 32.00003)
+texture_filter = 1
+position = Vector2(382.65997, 32.00003)
 scale = Vector2(3.555, 4)
 sprite_frames = SubResource("SpriteFrames_qlg0r")
 animation = &"use"
 
 [node name="RechargeSprite" type="AnimatedSprite2D" parent="hud/PhaseAbility" unique_id=836930531]
-position = Vector2(1236.66, 32)
+texture_filter = 1
+position = Vector2(382.65997, 32)
 scale = Vector2(3.555, 4)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
 animation = &"recharge"

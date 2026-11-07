@@ -237,13 +237,13 @@ shape = SubResource("RectangleShape2D_txh2y")
 script = SubResource("GDScript_dqkch")
 
 [node name="UseSprite" type="AnimatedSprite2D" parent="hud/PhaseAbility" unique_id=1414257812]
-position = Vector2(1236.66, 32.00003)
+position = Vector2(67.660034, 32.00003)
 scale = Vector2(3.555, 4)
 sprite_frames = SubResource("SpriteFrames_qlg0r")
 animation = &"use"
 
 [node name="RechargeSprite" type="AnimatedSprite2D" parent="hud/PhaseAbility" unique_id=836930531]
-position = Vector2(1236.66, 32)
+position = Vector2(67.660034, 32)
 scale = Vector2(3.555, 4)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
 animation = &"recharge"

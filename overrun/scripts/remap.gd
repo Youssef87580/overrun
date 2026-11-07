@@ -10,6 +10,12 @@ const REMAPPABLE_ACTIONS := [\
 	"flip_gravity",
 	"spawn_clone",
 	"phase_shift",
+	"jump2",
+	"move_left2",
+	"move_right2",
+	"flip_gravity2",
+	"spawn_clone2",
+	"phase_shift2",
 ]
 
 const ACTION_NAMES := {
@@ -20,6 +26,12 @@ const ACTION_NAMES := {
 	"flip_gravity" : "flip gravity",
 	"spawn_clone" : "spawn clone",
 	"phase_shift" : "phase shift",
+	"jump2" : "jump2",
+	"move_left2" : "move left2",
+	"move_right2" : "move right2",
+	"flip_gravity2" : "flip gravity2",
+	"spawn_clone2" : "spawn clone2",
+	"phase_shift2" : "phase shift2",
 }
 
 var is_remapping := false

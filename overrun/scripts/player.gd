@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var coyote_time: float = 0.1
 @export var phase_duration: float = 3.0
 @export var phase_cooldown: float = 1.5
+@onready var phase_ability  = $hud/PhaseAbility
 
 var coyote_timer: float = 0.0 
 var gravity_direction: int = 1
@@ -74,10 +75,10 @@ func handle_phase_shift() -> void:
 			cooldown_timer = 0.0
 			
 		var progress := 1.0 - (cooldown_timer / phase_cooldown)
-		AbilityHUD.phase_ability.set_recharge_progress(progress)
+		phase_ability.set_recharge_progress(progress)
 		
 	elif not is_phased:
-		AbilityHUD.phase_ability.set_recharge_progress(1.0)
+		phase_ability.set_recharge_progress(1.0)
 		cooldown_timer = 0.0
 		
 		
@@ -85,16 +86,16 @@ func handle_phase_shift() -> void:
 		is_phased = true
 		phase_timer = phase_duration
 		modulate.a = 0.5
-		AbilityHUD.play_use()
+		phase_ability.play_use()
 		
 	if is_phased:
 		phase_timer -= get_physics_process_delta_time()
 		
-		if not AbilityHUD.phase_ability.use_sprite.is_playing():
-			AbilityHUD.phase_ability.hold_use_frame()
+		if not phase_ability.use_sprite.is_playing():
+			phase_ability.hold_use_frame()
 		
 		if phase_timer <= 0:
 			is_phased = false 
 			modulate.a = 1.0
 			cooldown_timer = phase_cooldown
-			AbilityHUD.play_recharge()
+			phase_ability.play_recharge()

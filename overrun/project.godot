@@ -16,10 +16,6 @@ config/features=PackedStringArray("4.7", "GL Compatibility")
 run/max_fps=60
 config/icon="res://assets/icon.svg"
 
-[autoload]
-
-AbilityHUD="*uid://l7a630pxea6q"
-
 [display]
 
 window/size/viewport_width=1280

@@ -250,3 +250,7 @@ position = Vector2(67.660034, 32)
 scale = Vector2(3.555, 4)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
 animation = &"recharge"
+
+[node name="Node2D" type="Node2D" parent="hud" unique_id=1786077061]
+
+[node name="Sprite2D" type="Sprite2D" parent="hud/Node2D" unique_id=1896228659]

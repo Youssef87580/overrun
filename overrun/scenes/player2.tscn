@@ -249,3 +249,5 @@ position = Vector2(382.65997, 32)
 scale = Vector2(3.555, 4)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
 animation = &"recharge"
+
+[node name="Timer" type="Timer" parent="." unique_id=290449495]

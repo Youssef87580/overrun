@@ -329,3 +329,6 @@ animation = &"recharge"
 position = Vector2(164, 37)
 sprite_frames = SubResource("SpriteFrames_dqkch")
 animation = &"flip"
+
+[node name="Timer" type="Timer" parent="." unique_id=60448752]
+one_shot = true

@@ -174,7 +174,7 @@ func _on_back_pressed() -> void:
 	get_tree().paused = false 
 
 func _on_Return_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/control.tscn")
+	get_tree().change_scene_to_file("res://scenes/gamemenu.tscn")
 
 func _on_Reset_pressed() -> void:
 	var dir := DirAccess.open("user://")

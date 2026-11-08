@@ -8,14 +8,17 @@ extends CharacterBody2D
 @export var coyote_time: float = 0.1
 @export var phase_duration: float = 3.0
 @export var phase_cooldown: float = 1.5
+@export var flip_cooldown_timer :float = 0.0 
 @onready var phase_ability  = $"../../../../SubViewportContainer2/SubViewport/hud2/PhaseAbility" #$hud/PhaseAbility
 
 var coyote_timer: float = 0.0 
 var gravity_direction: int = 1
 var clone_instance: Node = null 
 var is_phased: bool = false
-var phase_timer:float = 0.0 
-var cooldown_timer:float = 0.0 
+var phase_timer :float = 0.0 
+var flip_timer :float = 0.0 
+var phase_cooldown_timer :float = 0.0 
+
 
 func _physics_process(delta: float) -> void: 
 	handle_phase_shift()
@@ -69,20 +72,20 @@ func handle_clone_spawn() -> void:
 			clone_instance = null
 
 func handle_phase_shift() -> void:
-	if cooldown_timer > 0:
-		cooldown_timer -= get_physics_process_delta_time()
-		if cooldown_timer < 0:
-			cooldown_timer = 0.0
+	if phase_cooldown_timer > 0:
+		phase_cooldown_timer -= get_physics_process_delta_time()
+		if phase_cooldown_timer < 0:
+			phase_cooldown_timer = 0.0
 			
-		var progress := 1.0 - (cooldown_timer / phase_cooldown)
+		var progress := 1.0 - (phase_cooldown_timer / phase_cooldown)
 		phase_ability.set_recharge_progress(progress)
 		
 	elif not is_phased:
 		phase_ability.set_recharge_progress(1.0)
-		cooldown_timer = 0.0
+		phase_cooldown_timer = 0.0
 		
 		
-	if cooldown_timer <= 0 and not is_phased and Input.is_action_just_pressed("phase_shift2"):
+	if phase_cooldown_timer <= 0 and not is_phased and Input.is_action_just_pressed("phase_shift2"):
 		is_phased = true
 		phase_timer = phase_duration
 		modulate.a = 0.5
@@ -97,5 +100,5 @@ func handle_phase_shift() -> void:
 		if phase_timer <= 0:
 			is_phased = false 
 			modulate.a = 1.0
-			cooldown_timer = phase_cooldown
+			phase_cooldown_timer = phase_cooldown
 			phase_ability.play_recharge()

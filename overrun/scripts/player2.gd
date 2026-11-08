@@ -8,7 +8,6 @@ extends CharacterBody2D
 @export var coyote_time: float = 0.1
 @export var phase_duration: float = 3.0
 @export var phase_cooldown: float = 1.5
-@export var flip_cooldown_timer :float = 0.0 
 @onready var phase_ability  = $"../../../../SubViewportContainer2/SubViewport/hud2/PhaseAbility" #$hud/PhaseAbility
 
 var coyote_timer: float = 0.0 
@@ -16,7 +15,6 @@ var gravity_direction: int = 1
 var clone_instance: Node = null 
 var is_phased: bool = false
 var phase_timer :float = 0.0 
-var flip_timer :float = 0.0 
 var phase_cooldown_timer :float = 0.0 
 
 
@@ -31,8 +29,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func handle_gravity_flip() -> void:
-	if Input.is_action_just_pressed("flip_gravity2"):
+	if Input.is_action_just_pressed("flip_gravity2") and $Timer.time_left == 0:
 		gravity_direction *= -1
+		$"../../../../SubViewportContainer2/SubViewport/hud2/flip/useflip".play("flip")
+		$Timer.start()
+	
 
 func apply_gravity(delta: float) -> void:
 	if not is_on_floor():

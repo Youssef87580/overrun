@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://by48a2sme0in0" path="res://scripts/split_screen.gd" id="1_c5m37"]
 [ext_resource type="Texture2D" uid="uid://ce07xc6oum1lt" path="res://assets/purple phase shifter use -Sheet.png" id="3_b2tsv"]
 [ext_resource type="Texture2D" uid="uid://be013esullwrx" path="res://assets/purple phase shifter recharge-Sheet-Sheet.png" id="4_utmev"]
+[ext_resource type="Texture2D" uid="uid://bvpmuw4ccqgvc" path="res://assets/flip animated-Sheet.png" id="5_utmev"]
 
 [sub_resource type="GDScript" id="GDScript_dqkch"]
 script/source = "extends Node2D
@@ -175,6 +176,77 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("5_utmev")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+atlas = ExtResource("5_utmev")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("5_utmev")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("5_utmev")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("5_utmev")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("5_utmev")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
+atlas = ExtResource("5_utmev")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
+atlas = ExtResource("5_utmev")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
+atlas = ExtResource("5_utmev")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gmtae"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjrip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smehm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4r1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v2ag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jej6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ej7")
+}],
+"loop": 0,
+"name": &"flip",
+"speed": 9.0
+}]
+
 [node name="SplitScreen" type="Node" unique_id=1667793410]
 script = ExtResource("1_c5m37")
 
@@ -233,6 +305,13 @@ position = Vector2(1025.6599, 42)
 scale = Vector2(3.555, 4)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
 animation = &"recharge"
+
+[node name="flip" type="Node2D" parent="HBoxContainer/SubViewportContainer2/SubViewport/hud2" unique_id=236663741]
+
+[node name="useflip" type="AnimatedSprite2D" parent="HBoxContainer/SubViewportContainer2/SubViewport/hud2/flip" unique_id=1582916119]
+position = Vector2(929, 37)
+sprite_frames = SubResource("SpriteFrames_gmtae")
+animation = &"flip"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1848735584]
 offset_left = 1080.0

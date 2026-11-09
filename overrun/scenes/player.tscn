@@ -146,7 +146,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_txh2y"]
-size = Vector2(8, 14)
+size = Vector2(18, 21)
 
 [sub_resource type="GDScript" id="GDScript_dqkch"]
 script/source = "extends Node2D
@@ -401,10 +401,10 @@ position = Vector2(10, -12)
 sprite_frames = SubResource("SpriteFrames_txh2y")
 animation = &"run"
 autoplay = "idel"
-frame_progress = 0.9475748
+frame_progress = 0.09845081
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1594519304]
-position = Vector2(10, -7)
+position = Vector2(13, -6.5)
 shape = SubResource("RectangleShape2D_txh2y")
 
 [node name="hud" type="CanvasLayer" parent="." unique_id=632127211]

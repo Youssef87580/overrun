@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 	handle_gravity_flip()
 	up_direction = Vector2(0, -gravity_direction)
 	apply_gravity(delta)
-	handle_jump()
+	handle_jump(delta)
 	handle_horizontal_movement(delta)
 	move_and_slide()
 
@@ -41,7 +41,7 @@ func apply_gravity(delta: float) -> void:
 	else:
 		velocity.y = 0
 
-func handle_jump() -> void:
+func handle_jump(delta: float) -> void:
 	if is_on_floor():
 		coyote_timer = coyote_time
 	else:

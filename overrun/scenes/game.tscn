@@ -25,12 +25,11 @@ position = Vector2(1303.66, 42.00003)
 [node name="RechargeSprite" parent="player2/hud/PhaseAbility" parent_id_path=PackedInt32Array(1199560895, 503042111) index="1" unique_id=836930531]
 position = Vector2(1303.66, 42)
 
-[node name="TileMap" parent="." unique_id=1167224674 instance=ExtResource("2_yqjtg")]
-position = Vector2(285, 277)
-
 [node name="button" parent="." unique_id=1034766941 instance=ExtResource("3_lnu2h")]
 texture_filter = 1
 position = Vector2(718, 372)
+
+[node name="Node2D" parent="button" unique_id=629113263 instance=ExtResource("2_yqjtg")]
 
 [editable path="player"]
 [editable path="player2"]

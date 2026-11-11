@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://ea580xwv3imk" path="res://assets/main charch-Recovered.png" id="2_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://bvpmuw4ccqgvc" path="res://assets/flip animated-Sheet.png" id="5_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://ce07xc6oum1lt" path="res://assets/purple phase shifter use -Sheet.png" id="5_smehm"]
+[ext_resource type="Texture2D" uid="uid://b561rd8jiasjf" path="res://assets/brokenHeart💔-0004.png" id="6_fjrip"]
+[ext_resource type="Texture2D" uid="uid://cu40aolxvnfat" path="res://assets/heart-0003.png" id="6_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://be013esullwrx" path="res://assets/purple phase shifter recharge-Sheet-Sheet.png" id="6_ur7pv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
@@ -389,6 +391,62 @@ animations = [{
 "speed": 9.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc3p3"]
+atlas = ExtResource("6_fjrip")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_487ah"]
+atlas = ExtResource("6_tuyoq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md1ol"]
+atlas = ExtResource("6_tuyoq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj30b"]
+atlas = ExtResource("6_tuyoq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_14o5u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc3p3")
+}],
+"loop": 1,
+"name": &"broken_heart",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_487ah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md1ol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md1ol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj30b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj30b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md1ol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md1ol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md1ol")
+}],
+"loop": 1,
+"name": &"heart",
+"speed": 5.0
+}]
+
 [node name="player" type="CharacterBody2D" unique_id=1788484758]
 z_index = 1
 collision_mask = 5
@@ -401,7 +459,6 @@ position = Vector2(10, -12)
 sprite_frames = SubResource("SpriteFrames_txh2y")
 animation = &"run"
 autoplay = "idel"
-frame_progress = 0.7768867
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1594519304]
 position = Vector2(13, -6.5)
@@ -432,6 +489,55 @@ animation = &"recharge"
 position = Vector2(164, 37)
 sprite_frames = SubResource("SpriteFrames_dqkch")
 animation = &"flip"
+
+[node name="hearts" type="Panel" parent="hud" unique_id=614097876]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -299.0
+offset_top = 21.0
+offset_right = -80.0
+offset_bottom = 95.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="hud/hearts" unique_id=1408358861]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_right = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 77
+
+[node name="Node2D" type="Control" parent="hud/hearts/HBoxContainer" unique_id=1078460853]
+layout_mode = 2
+
+[node name="heart1" type="AnimatedSprite2D" parent="hud/hearts/HBoxContainer/Node2D" unique_id=1789445590]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SpriteFrames_14o5u")
+animation = &"heart"
+
+[node name="Node2D2" type="Control" parent="hud/hearts/HBoxContainer" unique_id=533952098]
+layout_mode = 2
+
+[node name="heart2" type="AnimatedSprite2D" parent="hud/hearts/HBoxContainer/Node2D2" unique_id=102116425]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SpriteFrames_14o5u")
+animation = &"heart"
+frame_progress = 0.94494724
+
+[node name="Node2D3" type="Control" parent="hud/hearts/HBoxContainer" unique_id=854995810]
+layout_mode = 2
+
+[node name="heart3" type="AnimatedSprite2D" parent="hud/hearts/HBoxContainer/Node2D3" unique_id=702192371]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SpriteFrames_14o5u")
+animation = &"heart"
+frame_progress = 0.121735975
 
 [node name="Timer" type="Timer" parent="." unique_id=60448752]
 one_shot = true

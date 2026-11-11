@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://ce07xc6oum1lt" path="res://assets/purple phase shifter use -Sheet.png" id="3_b2tsv"]
 [ext_resource type="Texture2D" uid="uid://be013esullwrx" path="res://assets/purple phase shifter recharge-Sheet-Sheet.png" id="4_utmev"]
 [ext_resource type="Texture2D" uid="uid://bvpmuw4ccqgvc" path="res://assets/flip animated-Sheet.png" id="5_utmev"]
+[ext_resource type="Script" uid="uid://b5itydx11ronx" path="res://scripts/pause_panel.gd" id="6_1rr1x"]
+[ext_resource type="FontFile" uid="uid://djwlv3y6q6dkn" path="res://fonts/PressStart2P-Regular.ttf" id="6_1ycwb"]
 
 [sub_resource type="GDScript" id="GDScript_dqkch"]
 script/source = "extends Node2D
@@ -247,6 +249,41 @@ animations = [{
 "speed": 9.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rr1x"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.16470589, 0.101960786, 0.101960786, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.76862746, 0.627451, 0.20784314, 1)
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fitgq"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.05882353, 0.05882353, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.627451, 0.5019608, 0.1254902, 1)
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_buhwv"]
+bg_color = Color(0.22745098, 0.16470589, 0.16470589, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8784314, 0.7529412, 0.3137255, 1)
+corner_detail = 5
+
 [node name="SplitScreen" type="Node" unique_id=1667793410]
 script = ExtResource("1_c5m37")
 
@@ -266,6 +303,9 @@ size = Vector2i(1080, 1080)
 render_target_update_mode = 4
 
 [node name="Game" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=2063107461 instance=ExtResource("1_ahfsy")]
+
+[node name="useflip" parent="HBoxContainer/SubViewportContainer/SubViewport/Game/player2/hud/flip" parent_id_path=PackedInt32Array(2063107461, 1199560895, 749783544) index="0" unique_id=1844286950]
+position = Vector2(1207, 37)
 
 [node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=2066996775]
 zoom = Vector2(2, 2)
@@ -318,6 +358,78 @@ offset_left = 1080.0
 offset_right = 1090.0
 offset_bottom = 1080.0
 color = Color(1, 0.51858807, 0.2560137, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2114042725]
+
+[node name="pause panel" type="Panel" parent="CanvasLayer" unique_id=460804487]
+unique_name_in_owner = true
+visible = false
+offset_left = 153.0
+offset_top = 105.0
+offset_right = 1850.0
+offset_bottom = 916.0
+script = ExtResource("6_1rr1x")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/pause panel" unique_id=725939634]
+layout_mode = 0
+offset_left = 505.0
+offset_top = 273.0
+offset_right = 1297.0
+offset_bottom = 633.0
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="CanvasLayer/pause panel/VBoxContainer" unique_id=1604575632]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("6_1ycwb")
+theme_override_font_sizes/font_size = 72
+text = "GAME PAUSED"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/pause panel/VBoxContainer" unique_id=1795134140]
+layout_mode = 2
+theme_override_constants/margin_top = 60
+
+[node name="resume" type="Button" parent="CanvasLayer/pause panel/VBoxContainer" unique_id=425462409]
+process_mode = 3
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_constants/h_separation = 40
+theme_override_fonts/font = ExtResource("6_1ycwb")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_1rr1x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fitgq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_buhwv")
+text = "resume"
+
+[node name="options" type="Button" parent="CanvasLayer/pause panel/VBoxContainer" unique_id=220506561]
+process_mode = 3
+visible = false
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_constants/h_separation = 40
+theme_override_fonts/font = ExtResource("6_1ycwb")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_1rr1x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fitgq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_buhwv")
+text = "options"
+
+[node name="main menu" type="Button" parent="CanvasLayer/pause panel/VBoxContainer" unique_id=1127246289]
+process_mode = 3
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_constants/h_separation = 40
+theme_override_fonts/font = ExtResource("6_1ycwb")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_1rr1x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fitgq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_buhwv")
+text = "main menu"
+
+[connection signal="pressed" from="CanvasLayer/pause panel/VBoxContainer/resume" to="CanvasLayer/pause panel" method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/pause panel/VBoxContainer/main menu" to="CanvasLayer/pause panel" method="_on_main_menu_pressed"]
 
 [editable path="HBoxContainer/SubViewportContainer/SubViewport/Game"]
 [editable path="HBoxContainer/SubViewportContainer/SubViewport/Game/player"]

@@ -148,7 +148,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_txh2y"]
-size = Vector2(18, 21)
+size = Vector2(18, 25)
 
 [sub_resource type="GDScript" id="GDScript_dqkch"]
 script/source = "extends Node2D
@@ -460,7 +460,7 @@ animation = &"run"
 autoplay = "idel"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1594519304]
-position = Vector2(13, -6.5)
+position = Vector2(13, -8.5)
 shape = SubResource("RectangleShape2D_txh2y")
 
 [node name="hud" type="CanvasLayer" parent="." unique_id=632127211]
@@ -493,10 +493,10 @@ animation = &"flip"
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -299.0
+offset_left = -450.0
 offset_top = 21.0
-offset_right = -80.0
-offset_bottom = 95.0
+offset_right = -41.0
+offset_bottom = 182.0
 grow_horizontal = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="hud/hearts" unique_id=1408358861]
@@ -510,32 +510,35 @@ offset_left = -81.0
 offset_right = 91.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 77
+theme_override_constants/separation = 141
 
 [node name="Node2D" type="Control" parent="hud/hearts/HBoxContainer" unique_id=1078460853]
 layout_mode = 2
 
 [node name="heart1" type="AnimatedSprite2D" parent="hud/hearts/HBoxContainer/Node2D" unique_id=1789445590]
-scale = Vector2(1.4, 1.4)
+scale = Vector2(3.2, 3.2)
 sprite_frames = SubResource("SpriteFrames_14o5u")
 animation = &"heart"
+autoplay = "heart"
 
 [node name="Node2D2" type="Control" parent="hud/hearts/HBoxContainer" unique_id=533952098]
 layout_mode = 2
 
 [node name="heart2" type="AnimatedSprite2D" parent="hud/hearts/HBoxContainer/Node2D2" unique_id=102116425]
-scale = Vector2(1.4, 1.4)
+scale = Vector2(3.2, 3.2)
 sprite_frames = SubResource("SpriteFrames_14o5u")
 animation = &"heart"
+autoplay = "heart"
 frame_progress = 0.94494724
 
 [node name="Node2D3" type="Control" parent="hud/hearts/HBoxContainer" unique_id=854995810]
 layout_mode = 2
 
 [node name="heart3" type="AnimatedSprite2D" parent="hud/hearts/HBoxContainer/Node2D3" unique_id=702192371]
-scale = Vector2(1.4, 1.4)
+scale = Vector2(3.2, 3.2)
 sprite_frames = SubResource("SpriteFrames_14o5u")
 animation = &"heart"
+autoplay = "heart"
 frame_progress = 0.121735975
 
 [node name="Timer" type="Timer" parent="." unique_id=60448752]

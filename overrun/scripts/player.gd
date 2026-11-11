@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 var speed : float = 200.0
 var maximum_jumps := 1
-var jump_velocity  : float = -250.0
+var jump_velocity  : float = -400.0
 var gravity: float = 980.0
 var coyote_time: float = 0.1
 var phase_duration: float = 3.0
@@ -16,6 +16,8 @@ var clone_instance: Node = null
 var is_phased: bool = false
 var phase_timer:float = 0.0 
 var phase_cooldown_timer :float = 0.0 
+var repel_timer = 0
+var repel_duration = 0.3
 
 
 func _physics_process(delta: float) -> void: 
@@ -25,7 +27,12 @@ func _physics_process(delta: float) -> void:
 	up_direction = Vector2(0, -gravity_direction)
 	apply_gravity(delta)
 	handle_jump(delta)
-	handle_horizontal_movement(delta)
+	if repel_timer > 0:
+		repel_timer -= delta
+		var direction := Input.get_axis("move_left2", "move_right2")
+		velocity.x += direction * speed * 2.0 * delta
+	else:
+		handle_horizontal_movement(delta)
 	move_and_slide()
 	
 	print("P1 | Velocity Y: ", velocity.y, " | Gravity: ", gravity, " | Jump: ", jump_velocity)
@@ -33,15 +40,18 @@ func _physics_process(delta: float) -> void:
 func handle_gravity_flip() -> void:
 	if Input.is_action_just_pressed("flip_gravity") and $Timer.time_left == 0:
 		gravity_direction *= -1
+		toggle_vertical_flip()
 		$hud/flip/useflip.play("flip")
 		$Timer.start()
 		
+func toggle_vertical_flip() -> void:
+	$AnimatedSprite2D.flip_v = !$AnimatedSprite2D.flip_v
 
 func apply_gravity(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * gravity_direction * delta 
-	else:
-		velocity.y = 0
+	#else:
+		#velocity.y = 0
 
 func handle_jump(delta: float) -> void:
 	if is_on_floor():
@@ -105,3 +115,10 @@ func handle_phase_shift() -> void:
 			modulate.a = 1.0
 			phase_cooldown_timer = phase_cooldown
 			phase_ability.play_recharge()
+
+func jump():
+	velocity.y = jump_velocity * 0.5
+func repel(sign):
+	velocity.x = 200 * sign
+	velocity.y = jump_velocity * 0.5 * gravity_direction
+	repel_timer = repel_duration

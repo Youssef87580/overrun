@@ -43,7 +43,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hb4is"]
-size = Vector2(18, 23)
+size = Vector2(18, 29)
 
 [sub_resource type="GDScript" id="GDScript_dqkch"]
 script/source = "extends Node2D
@@ -300,7 +300,7 @@ autoplay = "idel"
 frame_progress = 0.3225733
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1678512705]
-position = Vector2(11, -4.5)
+position = Vector2(11, -7.5)
 shape = SubResource("RectangleShape2D_hb4is")
 
 [node name="hud" type="CanvasLayer" parent="." unique_id=632127211]

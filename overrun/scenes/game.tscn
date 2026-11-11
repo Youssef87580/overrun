@@ -4,8 +4,20 @@
 [ext_resource type="PackedScene" uid="uid://dnqstuj8rkuwv" path="res://scenes/level 1 .tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://dshw1opwhn3dk" path="res://scenes/button.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://df8ycogr72d17" path="res://scenes/player2.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://bkfa7jodhgdp6" path="res://scenes/enemy.tscn" id="5_iywne"]
+[ext_resource type="Script" uid="uid://log3ulmiak27" path="res://scripts/fall_area.gd" id="6_p57ef"]
+[ext_resource type="Script" uid="uid://dr81q0roe2ysl" path="res://scripts/gamemanager.gd" id="7_u5sy4"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_14o5u"]
+distance = -3.0
 
 [node name="Game" type="Node2D" unique_id=2063107461]
+
+[node name="Node2D" parent="." unique_id=629113263 instance=ExtResource("2_yqjtg")]
+position = Vector2(600, 342)
+
+[node name="gamemanager" type="Node" parent="." unique_id=1691661202]
+script = ExtResource("7_u5sy4")
 
 [node name="player" parent="." unique_id=1788484758 instance=ExtResource("1_uwrxv")]
 position = Vector2(628, 331)
@@ -27,9 +39,27 @@ position = Vector2(1303.66, 42)
 
 [node name="button" parent="." unique_id=1034766941 instance=ExtResource("3_lnu2h")]
 texture_filter = 1
-position = Vector2(718, 372)
+position = Vector2(718, 472)
 
-[node name="Node2D" parent="button" unique_id=629113263 instance=ExtResource("2_yqjtg")]
+[node name="enemies" type="Node" parent="." unique_id=1153504193]
+
+[node name="Enemy" parent="enemies" unique_id=1448714101 instance=ExtResource("5_iywne")]
+position = Vector2(856, 469)
+
+[node name="Enemy2" parent="enemies" unique_id=151799202 instance=ExtResource("5_iywne")]
+position = Vector2(603, 469)
+
+[node name="Enemy3" parent="enemies" unique_id=1849633115 instance=ExtResource("5_iywne")]
+position = Vector2(1107, 468)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=262043097]
+position = Vector2(998, 961)
+script = ExtResource("6_p57ef")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=206832784]
+shape = SubResource("WorldBoundaryShape2D_14o5u")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 
 [editable path="player"]
 [editable path="player2"]

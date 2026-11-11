@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://bkfa7jodhgdp6"]
+
+[ext_resource type="Texture2D" uid="uid://dmqbdromrx17h" path="res://assets/Mushroom with VFX/Mushroom-Idle.png" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://d0hkmxpm86ivw" path="res://scripts/enemy.gd" id="1_md0e3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md0e3"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uy6h"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4w8v"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwavj"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nenq2"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(400, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md484"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(480, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_14o5u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md0e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ra3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uy6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4w8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwavj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nenq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md484")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hyoh7"]
+size = Vector2(21, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14o5u"]
+size = Vector2(23, 29)
+
+[node name="Enemy" type="RigidBody2D" unique_id=1448714101]
+script = ExtResource("1_md0e3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2062924178]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_14o5u")
+autoplay = "default"
+frame_progress = 0.2762303
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1364714389]
+position = Vector2(0.5, 18.5)
+shape = SubResource("RectangleShape2D_hyoh7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1766920223]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1660821970]
+position = Vector2(0.5, 18.5)
+shape = SubResource("RectangleShape2D_14o5u")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

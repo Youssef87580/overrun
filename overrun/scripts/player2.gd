@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
 
-@export var speed : float = 200.0
-@export var maximum_jumps := 1
-@export var jump_velocity  : float = -250.0
-@export var gravity: float = 980.0
-@export var coyote_time: float = 0.1
-@export var phase_duration: float = 3.0
-@export var phase_cooldown: float = 1.5
+var speed : float = 200.0
+var maximum_jumps := 1
+var jump_velocity  : float = -250.0
+var gravity: float = 980.0
+var coyote_time: float = 0.1
+var phase_duration: float = 3.0
+var phase_cooldown: float = 1.5
 @onready var phase_ability  = $"../../../../SubViewportContainer2/SubViewport/hud2/PhaseAbility" #$hud/PhaseAbility
 
 var coyote_timer: float = 0.0 
@@ -24,9 +24,11 @@ func _physics_process(delta: float) -> void:
 	handle_gravity_flip()
 	up_direction = Vector2(0, -gravity_direction)
 	apply_gravity(delta)
-	handle_jump()
+	handle_jump(delta)
 	handle_horizontal_movement(delta)
 	move_and_slide()
+	
+	print("P2 | Velocity Y: ", velocity.y, " | Gravity: ", gravity, " | Jump: ", jump_velocity)
 
 func handle_gravity_flip() -> void:
 	if Input.is_action_just_pressed("flip_gravity2") and $Timer.time_left == 0:
@@ -41,7 +43,7 @@ func apply_gravity(delta: float) -> void:
 	else:
 		velocity.y = 0
 
-func handle_jump() -> void:
+func handle_jump(delta: float) -> void:
 	if is_on_floor():
 		coyote_timer = coyote_time
 	else:

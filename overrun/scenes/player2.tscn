@@ -6,6 +6,38 @@
 [ext_resource type="Texture2D" uid="uid://be013esullwrx" path="res://assets/purple phase shifter recharge-Sheet-Sheet.png" id="4_8l1to"]
 [ext_resource type="Texture2D" uid="uid://bvpmuw4ccqgvc" path="res://assets/flip animated-Sheet.png" id="5_hb4is"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4fi4"]
+atlas = ExtResource("2_hb4is")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnh30"]
+atlas = ExtResource("2_hb4is")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqp2g"]
+atlas = ExtResource("2_hb4is")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0up8"]
+atlas = ExtResource("2_hb4is")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dq7pf"]
+atlas = ExtResource("2_hb4is")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rei4x"]
+atlas = ExtResource("2_hb4is")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwv1h"]
+atlas = ExtResource("2_hb4is")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b32sq"]
+atlas = ExtResource("2_hb4is")
+region = Rect2(96, 128, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_gmtae"]
 atlas = ExtResource("2_hb4is")
 region = Rect2(0, 0, 32, 32)
@@ -80,6 +112,40 @@ region = Rect2(192, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_txh2y"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4fi4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnh30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqp2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0up8")
+}],
+"loop": 0,
+"name": &"damage",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dq7pf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rei4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwv1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b32sq")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 7.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gmtae")
@@ -399,8 +465,10 @@ script = ExtResource("1_dj65e")
 texture_filter = 1
 position = Vector2(8, -9)
 sprite_frames = SubResource("SpriteFrames_txh2y")
-animation = &"run"
+animation = &"death"
 autoplay = "idel"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1678512705]
 position = Vector2(11, -7.5)

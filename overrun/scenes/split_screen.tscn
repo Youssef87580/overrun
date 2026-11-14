@@ -308,7 +308,7 @@ render_target_update_mode = 4
 position = Vector2(1207, 37)
 
 [node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=2066996775]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
@@ -323,7 +323,7 @@ size = Vector2i(1080, 1080)
 render_target_update_mode = 4
 
 [node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer2/SubViewport" unique_id=1183477987]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 

@@ -44,13 +44,13 @@ position = Vector2(718, 472)
 [node name="enemies" type="Node" parent="." unique_id=1153504193]
 
 [node name="Enemy" parent="enemies" unique_id=1448714101 instance=ExtResource("5_iywne")]
-position = Vector2(856, 469)
+position = Vector2(2195, 482)
 
-[node name="Enemy2" parent="enemies" unique_id=151799202 instance=ExtResource("5_iywne")]
-position = Vector2(603, 469)
+[node name="Enemy2" parent="enemies" unique_id=2090977289 instance=ExtResource("5_iywne")]
+position = Vector2(1677, 475)
 
-[node name="Enemy3" parent="enemies" unique_id=1849633115 instance=ExtResource("5_iywne")]
-position = Vector2(1107, 468)
+[node name="Enemy3" parent="enemies" unique_id=1796015476 instance=ExtResource("5_iywne")]
+position = Vector2(1381, 476)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=262043097]
 position = Vector2(998, 961)

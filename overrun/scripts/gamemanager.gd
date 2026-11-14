@@ -1,5 +1,6 @@
 extends Node
 
+var kills = 0
 var lives = 3
 
 func decrease_health(hearts):

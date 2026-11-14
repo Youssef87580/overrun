@@ -8,6 +8,38 @@
 [ext_resource type="Texture2D" uid="uid://cu40aolxvnfat" path="res://assets/heart-0003.png" id="6_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://be013esullwrx" path="res://assets/purple phase shifter recharge-Sheet-Sheet.png" id="6_ur7pv"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hax0n"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4otl"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2b1d"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs1tg"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dvfe"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_giy8y"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdfoy"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhpqf"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(96, 128, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
 atlas = ExtResource("2_qlg0r")
 region = Rect2(0, 0, 32, 32)
@@ -82,6 +114,40 @@ region = Rect2(192, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_txh2y"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hax0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4otl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2b1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs1tg")
+}],
+"loop": 0,
+"name": &"damage",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dvfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_giy8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdfoy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhpqf")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 7.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oprun")
@@ -449,14 +515,15 @@ animations = [{
 
 [node name="player" type="CharacterBody2D" unique_id=1788484758]
 z_index = 1
-collision_mask = 5
+collision_layer = 513
+collision_mask = 517
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1315340822]
 texture_filter = 1
 position = Vector2(10, -12)
 sprite_frames = SubResource("SpriteFrames_txh2y")
-animation = &"run"
+animation = &"death"
 autoplay = "idel"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1594519304]

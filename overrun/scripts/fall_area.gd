@@ -14,3 +14,5 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "player" or body.name == "player2":
 		get_tree().reload_current_scene()
+	else:
+		body.queue_free()

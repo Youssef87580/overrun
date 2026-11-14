@@ -1,7 +1,29 @@
 [gd_scene format=3 uid="uid://bkfa7jodhgdp6"]
 
 [ext_resource type="Script" uid="uid://d0hkmxpm86ivw" path="res://scripts/enemy.gd" id="1_md0e3"]
+[ext_resource type="Texture2D" uid="uid://ctmhunumgbrol" path="res://assets/Mushroom with VFX/Mushroom_death.png" id="2_5uy6h"]
 [ext_resource type="Texture2D" uid="uid://c6b40uuklfq8k" path="res://assets/Mushroom with VFX/mushroom_idle.png" id="2_md0e3"]
+[ext_resource type="Texture2D" uid="uid://dhqg8ycuqarq4" path="res://assets/Mushroom with VFX/mushroom_running.png" id="4_c4w8v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otmr2"]
+atlas = ExtResource("2_5uy6h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtq4b"]
+atlas = ExtResource("2_5uy6h")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0cyh"]
+atlas = ExtResource("2_5uy6h")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0wcc"]
+atlas = ExtResource("2_5uy6h")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1ycm"]
+atlas = ExtResource("2_5uy6h")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
 atlas = ExtResource("2_md0e3")
@@ -39,8 +61,44 @@ region = Rect2(224, 0, 32, 32)
 atlas = ExtResource("2_md0e3")
 region = Rect2(256, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_shcg2"]
+atlas = ExtResource("4_c4w8v")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ile5s"]
+atlas = ExtResource("4_c4w8v")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1x4g4"]
+atlas = ExtResource("4_c4w8v")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pwtc"]
+atlas = ExtResource("4_c4w8v")
+region = Rect2(96, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_14o5u"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otmr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtq4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0cyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0wcc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1ycm")
+}],
+"loop": 0,
+"name": &"Death",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4ra3w")
@@ -72,6 +130,23 @@ animations = [{
 "loop": 1,
 "name": &"default",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shcg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ile5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1x4g4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pwtc")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hyoh7"]
@@ -80,7 +155,10 @@ size = Vector2(14, 18)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14o5u"]
 size = Vector2(16, 20)
 
-[node name="Enemy" type="RigidBody2D" unique_id=1448714101]
+[sub_resource type="CircleShape2D" id="CircleShape2D_hyoh7"]
+radius = 200.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=814130997]
 script = ExtResource("1_md0e3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2062924178]
@@ -88,8 +166,8 @@ texture_filter = 1
 position = Vector2(0, -2)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_14o5u")
+animation = &"run"
 autoplay = "default"
-frame_progress = 0.99244136
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1364714389]
 position = Vector2(0, -1)
@@ -103,4 +181,13 @@ position = Vector2(0, -1)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_14o5u")
 
+[node name="chasing_area" type="Area2D" parent="." unique_id=1253799517]
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chasing_area" unique_id=397160857]
+shape = SubResource("CircleShape2D_hyoh7")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="chasing_area" to="." method="_on_chasing_area_body_entered"]
+[connection signal="body_exited" from="chasing_area" to="." method="_on_chasing_area_body_exited"]

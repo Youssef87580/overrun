@@ -68,14 +68,25 @@ func handle_horizontal_movement(delta: float) -> void:
 	var direction := Input.get_axis("move_left2", "move_right2")
 	if direction:
 		velocity.x = direction  * speed
+		$AnimatedSprite2D.flip_h = direction < 0
+		$AnimatedSprite2D.play("run")
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed * delta * 10)
+		$AnimatedSprite2D.play("idel")
 
 func handle_clone_spawn() -> void:
 	if Input.is_action_just_pressed("spawn_clone2"):
 		if clone_instance == null:
-			clone_instance = self.duplicate()
-			clone_instance.position = position
+			clone_instance = CharacterBody2D.new()
+			clone_instance.global_position = global_position
+			
+			var clone_sprite = $AnimatedSprite2D.duplicate()
+			clone_instance.add_child(clone_sprite)
+			
+			var clone_collision = $CollisionShape2D2.duplicate()
+			clone_instance.add_child(clone_collision)
+			
+			
 			get_parent().add_child(clone_instance)
 			clone_instance.set_physics_process(false)
 			clone_instance.set_process_input(false)

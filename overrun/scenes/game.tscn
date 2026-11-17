@@ -40,7 +40,7 @@ position = Vector2(1303.66, 42)
 
 [node name="button" parent="." unique_id=1034766941 instance=ExtResource("3_lnu2h")]
 texture_filter = 1
-position = Vector2(718, 472)
+position = Vector2(1041, 470)
 
 [node name="enemies" type="Node" parent="." unique_id=1153504193]
 

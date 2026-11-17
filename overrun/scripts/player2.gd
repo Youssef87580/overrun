@@ -35,7 +35,6 @@ func _physics_process(delta: float) -> void:
 		handle_horizontal_movement(delta)
 	move_and_slide()
 	
-	print("P2 | Velocity Y: ", velocity.y, " | Gravity: ", gravity, " | Jump: ", jump_velocity)
 
 func handle_gravity_flip() -> void:
 	if Input.is_action_just_pressed("flip_gravity2") and $Timer.time_left == 0:

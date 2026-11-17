@@ -610,3 +610,7 @@ frame_progress = 0.121735975
 
 [node name="Timer" type="Timer" parent="." unique_id=60448752]
 one_shot = true
+
+[node name="dash duration" type="Timer" parent="." unique_id=1234318901]
+
+[node name="dash cooldown" type="Timer" parent="." unique_id=1662771370]

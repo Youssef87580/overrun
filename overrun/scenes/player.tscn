@@ -513,7 +513,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="player" type="CharacterBody2D" unique_id=1788484758]
+[node name="player" type="CharacterBody2D" unique_id=1788484758 groups=["players"]]
 z_index = 1
 collision_layer = 517
 collision_mask = 517
@@ -612,5 +612,6 @@ frame_progress = 0.121735975
 one_shot = true
 
 [node name="dash duration" type="Timer" parent="." unique_id=1234318901]
+wait_time = 0.2
 
 [node name="dash cooldown" type="Timer" parent="." unique_id=1662771370]

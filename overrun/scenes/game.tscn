@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://log3ulmiak27" path="res://scripts/fall_area.gd" id="6_p57ef"]
 [ext_resource type="Script" uid="uid://dr81q0roe2ysl" path="res://scripts/gamemanager.gd" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://b7xcubmvvm27s" path="res://scenes/get_trough.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://c3nolbtylovga" path="res://scenes/gate.tscn" id="9_0tnpc"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_14o5u"]
 distance = -3.0
@@ -63,6 +64,11 @@ shape = SubResource("WorldBoundaryShape2D_14o5u")
 [node name="get_trough" parent="." unique_id=1382157180 instance=ExtResource("8_gee14")]
 position = Vector2(914, 445)
 
+[node name="gate" parent="." unique_id=1181312678 instance=ExtResource("9_0tnpc")]
+position = Vector2(821, 468)
+
+[connection signal="pressed" from="button" to="gate" method="_open"]
+[connection signal="released" from="button" to="gate" method="_close"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 
 [editable path="player"]

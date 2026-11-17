@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://btisak0qr21ph"]
+
+[ext_resource type="Script" uid="uid://bb6dm6n0fvp05" path="res://scripts/chaindoor.gd" id="1_ijhct"]
+[ext_resource type="Texture2D" uid="uid://5a6ji2121mci" path="res://assets/chaindoor.png" id="2_ounim"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1m4l"]
+atlas = ExtResource("2_ounim")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsgkt"]
+atlas = ExtResource("2_ounim")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p77xg"]
+atlas = ExtResource("2_ounim")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0w86h"]
+atlas = ExtResource("2_ounim")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1de5"]
+atlas = ExtResource("2_ounim")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkwtp"]
+atlas = ExtResource("2_ounim")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2k6f"]
+atlas = ExtResource("2_ounim")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28stt"]
+atlas = ExtResource("2_ounim")
+region = Rect2(224, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtc02"]
+atlas = ExtResource("2_ounim")
+region = Rect2(256, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_riqn7"]
+atlas = ExtResource("2_ounim")
+region = Rect2(288, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7jj3"]
+atlas = ExtResource("2_ounim")
+region = Rect2(320, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pmrc"]
+atlas = ExtResource("2_ounim")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hyoh7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1m4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsgkt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p77xg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0w86h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1de5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkwtp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2k6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28stt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtc02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_riqn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7jj3")
+}],
+"loop": 0,
+"name": &"open",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pmrc")
+}],
+"loop": 0,
+"name": &"stop",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hyoh7"]
+size = Vector2(30, 62)
+
+[node name="chaindoor" type="StaticBody2D" unique_id=1550914656]
+script = ExtResource("1_ijhct")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1953185576]
+sprite_frames = SubResource("SpriteFrames_hyoh7")
+animation = &"stop"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1173767733]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1985419103]
+shape = SubResource("RectangleShape2D_hyoh7")

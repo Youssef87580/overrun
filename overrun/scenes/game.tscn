@@ -31,7 +31,7 @@ position = Vector2(67.660034, 42.00003)
 position = Vector2(67.660034, 42)
 
 [node name="player2" parent="." unique_id=1199560895 instance=ExtResource("4_lbhrr")]
-position = Vector2(782, 353)
+position = Vector2(311, 480)
 
 [node name="UseSprite" parent="player2/hud/PhaseAbility" parent_id_path=PackedInt32Array(1199560895, 503042111) index="0" unique_id=1414257812]
 position = Vector2(1303.66, 42.00003)

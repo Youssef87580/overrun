@@ -113,6 +113,10 @@ func handle_phase_shift() -> void:
 		is_phased = true
 		phase_timer = phase_duration
 		modulate.a = 0.5
+		
+		set_collision_layer_value(3, false)
+		set_collision_mask_value(3, false)
+		
 		phase_ability.play_use()
 		
 	if is_phased:
@@ -125,6 +129,10 @@ func handle_phase_shift() -> void:
 			is_phased = false 
 			modulate.a = 1.0
 			phase_cooldown_timer = phase_cooldown
+			
+			set_collision_layer_value(3, true)
+			set_collision_mask_value(3, true)
+			
 			phase_ability.play_recharge()
 
 func jump():

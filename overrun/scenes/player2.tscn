@@ -457,7 +457,7 @@ animations = [{
 
 [node name="player" type="CharacterBody2D" unique_id=1788484758]
 z_index = 1
-collision_layer = 513
+collision_layer = 517
 collision_mask = 517
 script = ExtResource("1_dj65e")
 

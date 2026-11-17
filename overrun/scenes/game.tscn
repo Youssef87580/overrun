@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bkfa7jodhgdp6" path="res://scenes/enemy.tscn" id="5_iywne"]
 [ext_resource type="Script" uid="uid://log3ulmiak27" path="res://scripts/fall_area.gd" id="6_p57ef"]
 [ext_resource type="Script" uid="uid://dr81q0roe2ysl" path="res://scripts/gamemanager.gd" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://b7xcubmvvm27s" path="res://scenes/get_trough.tscn" id="8_gee14"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_14o5u"]
 distance = -3.0
@@ -58,6 +59,9 @@ script = ExtResource("6_p57ef")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=206832784]
 shape = SubResource("WorldBoundaryShape2D_14o5u")
+
+[node name="get_trough" parent="." unique_id=1382157180 instance=ExtResource("8_gee14")]
+position = Vector2(914, 445)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 

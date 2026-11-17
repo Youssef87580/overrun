@@ -612,6 +612,11 @@ frame_progress = 0.121735975
 one_shot = true
 
 [node name="dash duration" type="Timer" parent="." unique_id=1234318901]
-wait_time = 0.2
+wait_time = 0.1
+one_shot = true
 
 [node name="dash cooldown" type="Timer" parent="." unique_id=1662771370]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="dash duration" to="." method="_on_dash_duration_timeout"]

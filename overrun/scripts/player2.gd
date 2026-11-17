@@ -20,19 +20,35 @@ var repel_timer = 0
 var repel_duration = 0.3
 
 
+var dash_speed = 900.0
+var friction_multiplier = 10.0
+var is_dashing = false
+var dash_direction = 0.0
+
+@onready var dash_duration = $"dash duration"
+@onready var dash_cooldown = $"dash cooldown"
+
+
 func _physics_process(delta: float) -> void: 
 	handle_phase_shift()
 	handle_clone_spawn()
 	handle_gravity_flip()
 	up_direction = Vector2(0, -gravity_direction)
-	apply_gravity(delta)
-	handle_jump(delta)
-	if repel_timer > 0:
-		repel_timer -= delta
-		var direction := Input.get_axis("move_left2", "move_right2")
-		velocity.x += direction * speed * 2.0 * delta
+	
+	if is_dashing:
+		velocity.x = dash_direction * dash_speed
+		velocity.y = 0
 	else:
-		handle_horizontal_movement(delta)
+		apply_gravity(delta)
+		handle_jump(delta)
+		if repel_timer > 0:
+			repel_timer -= delta
+			var direction := Input.get_axis("move_left2", "move_right2")
+			velocity.x += direction * speed * 2.0 * delta
+		else:
+			handle_horizontal_movement(delta)
+	
+	_dash()
 	move_and_slide()
 	
 
@@ -70,7 +86,7 @@ func handle_horizontal_movement(delta: float) -> void:
 		$AnimatedSprite2D.flip_h = direction < 0
 		$AnimatedSprite2D.play("run")
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed * delta * 10)
+		velocity.x = move_toward(velocity.x, 0, speed * delta * friction_multiplier)
 		$AnimatedSprite2D.play("idel")
 
 func handle_clone_spawn() -> void:
@@ -140,3 +156,22 @@ func repel(sign):
 	velocity.x = 200 * sign
 	velocity.y = jump_velocity * 0.5 * gravity_direction
 	repel_timer = repel_duration
+
+
+
+func _dash():
+	if Input.is_action_just_pressed("dash2") and dash_cooldown.is_stopped() and !is_dashing:
+		dash_direction = Input.get_axis("move_left2", "move_right2")
+		if dash_direction == 0:
+			dash_direction = -1 if $AnimatedSprite2D.flip_h else 1
+		
+		is_dashing = true
+		dash_duration.start()
+		dash_cooldown.start()
+
+
+func _on_dash_duration_timeout() -> void:
+	is_dashing = false
+	friction_multiplier = 50
+	await get_tree().create_timer(0.1).timeout
+	friction_multiplier = 10

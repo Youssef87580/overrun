@@ -455,7 +455,7 @@ animations = [{
 "speed": 9.0
 }]
 
-[node name="player" type="CharacterBody2D" unique_id=1788484758]
+[node name="player" type="CharacterBody2D" unique_id=1788484758 groups=["players"]]
 z_index = 1
 collision_layer = 517
 collision_mask = 517
@@ -502,3 +502,13 @@ animation = &"flip"
 
 [node name="Timer" type="Timer" parent="." unique_id=290449495]
 one_shot = true
+
+[node name="dash duration" type="Timer" parent="." unique_id=73750401]
+wait_time = 0.1
+one_shot = true
+
+[node name="dash cooldown" type="Timer" parent="." unique_id=1072692046]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="dash duration" to="." method="_on_dash_duration_timeout"]

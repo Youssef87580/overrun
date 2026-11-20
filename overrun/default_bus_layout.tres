@@ -1,0 +1,11 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://b3pa67wth0u2c"]
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_j3pel"]
+resource_name = "Amplify"
+volume_db = 24.0
+
+[resource]
+bus/0/bypass_fx = true
+bus/0/volume_db = 1.0604935
+bus/0/effect/0/effect = SubResource("AudioEffectAmplify_j3pel")
+bus/0/effect/0/enabled = true

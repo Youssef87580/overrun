@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://l73mucrott4" path="res://assets/elmafrod_baab.png" id="2_hudsw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hyoh7"]
+size = Vector2(32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wi8tm"]
 atlas = ExtResource("2_hudsw")
@@ -61,7 +62,59 @@ region = Rect2(384, 0, 32, 64)
 atlas = ExtResource("2_hudsw")
 region = Rect2(416, 0, 32, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwxio"]
+atlas = ExtResource("2_hudsw")
+region = Rect2(416, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hudsw"]
+atlas = ExtResource("2_hudsw")
+region = Rect2(384, 0, 32, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_h5b8s"]
+atlas = ExtResource("2_hudsw")
+region = Rect2(352, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mggtu"]
+atlas = ExtResource("2_hudsw")
+region = Rect2(320, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uljnt"]
+atlas = ExtResource("2_hudsw")
+region = Rect2(288, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgryu"]
+atlas = ExtResource("2_hudsw")
+region = Rect2(256, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcapr"]
+atlas = ExtResource("2_hudsw")
+region = Rect2(224, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ws7w"]
+atlas = ExtResource("2_hudsw")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5ng5"]
+atlas = ExtResource("2_hudsw")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8p5t"]
+atlas = ExtResource("2_hudsw")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3oeel"]
+atlas = ExtResource("2_hudsw")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3yym"]
+atlas = ExtResource("2_hudsw")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng6e7"]
+atlas = ExtResource("2_hudsw")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o13m"]
 atlas = ExtResource("2_hudsw")
 region = Rect2(0, 0, 32, 64)
 
@@ -116,14 +169,54 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_xwxio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hudsw")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_h5b8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mggtu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uljnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgryu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcapr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ws7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5ng5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8p5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3oeel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3yym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ng6e7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5o13m")
 }],
 "loop": 0,
 "name": &"stop",
-"speed": 5.0
+"speed": 15.0
 }]
 
 [node name="gate" type="StaticBody2D" unique_id=1181312678]
+scale = Vector2(0.5, 1.3)
 script = ExtResource("1_xwxio")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=943724579]
@@ -132,3 +225,5 @@ shape = SubResource("RectangleShape2D_hyoh7")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=122745791]
 sprite_frames = SubResource("SpriteFrames_hyoh7")
 animation = &"stop"
+frame = 13
+frame_progress = 1.0

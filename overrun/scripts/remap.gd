@@ -198,3 +198,10 @@ func _on_Reset_pressed() -> void:
 					InputMap.action_add_event(action, event)
 	
 	create_action_list()
+
+
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		Gamemanager.music = true
+	elif !toggled_on:
+		Gamemanager.music = false

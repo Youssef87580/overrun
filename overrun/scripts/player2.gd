@@ -161,6 +161,7 @@ func repel(sign):
 
 func _dash():
 	if Input.is_action_just_pressed("dash2") and dash_cooldown.is_stopped() and !is_dashing:
+		$dash_sound.play()
 		dash_direction = Input.get_axis("move_left2", "move_right2")
 		if dash_direction == 0:
 			dash_direction = -1 if $AnimatedSprite2D.flip_h else 1

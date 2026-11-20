@@ -2,6 +2,8 @@ extends Node
 
 var kills = 0
 var lives = 3
+var music = true
+
 
 func decrease_health(hearts):
 	lives -= 1

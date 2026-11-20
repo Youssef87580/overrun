@@ -28,6 +28,11 @@ var dash_direction = 0.0
 @onready var dash_duration = $"dash duration"
 @onready var dash_cooldown = $"dash cooldown"
 
+func _ready() -> void:
+	if Gamemanager.music == false:
+		$backmusic.stop()
+	if Gamemanager.music == true:
+		$backmusic.play()
 
 func _physics_process(delta: float) -> void: 
 	handle_phase_shift()
@@ -161,6 +166,7 @@ func repel(sign):
 
 func _dash():
 	if Input.is_action_just_pressed("dash") and dash_cooldown.is_stopped() and !is_dashing:
+		$dash_sound.play()
 		dash_direction = Input.get_axis("move_left", "move_right")
 		if dash_direction == 0:
 			dash_direction = -1 if $AnimatedSprite2D.flip_h else 1

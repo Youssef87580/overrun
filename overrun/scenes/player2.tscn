@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ce07xc6oum1lt" path="res://assets/purple phase shifter use -Sheet.png" id="3_gmtae"]
 [ext_resource type="Texture2D" uid="uid://be013esullwrx" path="res://assets/purple phase shifter recharge-Sheet-Sheet.png" id="4_8l1to"]
 [ext_resource type="Texture2D" uid="uid://bvpmuw4ccqgvc" path="res://assets/flip animated-Sheet.png" id="5_hb4is"]
+[ext_resource type="AudioStream" uid="uid://bugrua03umn3l" path="res://assets/music & sound effects/dash.mp3" id="6_gmtae"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t4fi4"]
 atlas = ExtResource("2_hb4is")
@@ -463,15 +464,13 @@ script = ExtResource("1_dj65e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1315340822]
 texture_filter = 1
-position = Vector2(8, -9)
+position = Vector2(-3, -13)
 sprite_frames = SubResource("SpriteFrames_txh2y")
-animation = &"death"
+animation = &"idel"
 autoplay = "idel"
-frame = 3
-frame_progress = 1.0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1678512705]
-position = Vector2(11, -7.5)
+position = Vector2(0, -11.5)
 shape = SubResource("RectangleShape2D_hb4is")
 
 [node name="hud" type="CanvasLayer" parent="." unique_id=632127211]
@@ -504,11 +503,14 @@ animation = &"flip"
 one_shot = true
 
 [node name="dash duration" type="Timer" parent="." unique_id=73750401]
-wait_time = 0.1
+wait_time = 0.15
 one_shot = true
 
 [node name="dash cooldown" type="Timer" parent="." unique_id=1072692046]
-wait_time = 2.0
+wait_time = 0.5
 one_shot = true
+
+[node name="dash_sound" type="AudioStreamPlayer" parent="." unique_id=1445492715]
+stream = ExtResource("6_gmtae")
 
 [connection signal="timeout" from="dash duration" to="." method="_on_dash_duration_timeout"]

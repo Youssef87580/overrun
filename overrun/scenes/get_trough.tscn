@@ -1,19 +1,32 @@
 [gd_scene format=3 uid="uid://b7xcubmvvm27s"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_hyoh7"]
+[ext_resource type="Texture2D" uid="uid://bj7o6jg3rh7ev" path="res://assets/grass dirt-Sheet.png" id="1_bbof5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hyoh7"]
-size = Vector2(46, 53)
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0m6b7"]
+atlas = ExtResource("1_bbof5")
+region = Rect2(115, 158, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hn8rt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0m6b7")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="get_trough" type="StaticBody2D" unique_id=1382157180]
+scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 4
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=397528547]
-position = Vector2(22.750002, 26.25)
-scale = Vector2(46.500004, 53.5)
-mesh = SubResource("BoxMesh_hyoh7")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1633174079]
-position = Vector2(23, 26.5)
 shape = SubResource("RectangleShape2D_hyoh7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=43891067]
+sprite_frames = SubResource("SpriteFrames_hn8rt")

@@ -158,3 +158,15 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_i0t10")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ydcpy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ea8pp")
 text = "Reset"
+
+[node name="CheckButton" type="CheckButton" parent="Panel" unique_id=1497408543]
+layout_mode = 0
+offset_left = 1535.0
+offset_top = 64.0
+offset_right = 1816.0
+offset_bottom = 175.0
+theme_override_font_sizes/font_size = 60
+button_pressed = true
+text = "Music"
+
+[connection signal="toggled" from="Panel/CheckButton" to="." method="_on_check_button_toggled"]

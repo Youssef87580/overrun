@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cn4cdlcend0sa" path="res://scenes/game.tscn" id="1_ahfsy"]
 [ext_resource type="Script" uid="uid://by48a2sme0in0" path="res://scripts/split_screen.gd" id="1_c5m37"]
 [ext_resource type="Texture2D" uid="uid://ce07xc6oum1lt" path="res://assets/purple phase shifter use -Sheet.png" id="3_b2tsv"]
+[ext_resource type="Texture2D" uid="uid://cpli6s7h6le76" path="res://assets/images/pixel-art-night-sky-background-260nw-2560132523.jpg" id="3_fitgq"]
 [ext_resource type="Texture2D" uid="uid://be013esullwrx" path="res://assets/purple phase shifter recharge-Sheet-Sheet.png" id="4_utmev"]
 [ext_resource type="Texture2D" uid="uid://bvpmuw4ccqgvc" path="res://assets/flip animated-Sheet.png" id="5_utmev"]
 [ext_resource type="Script" uid="uid://b5itydx11ronx" path="res://scripts/pause_panel.gd" id="6_1rr1x"]
@@ -327,6 +328,15 @@ zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="HBoxContainer/SubViewportContainer2/SubViewport/Camera2D" unique_id=1097167779]
+layer = -1
+
+[node name="DarkNightSkyWithStarlightFreeVector" type="Sprite2D" parent="HBoxContainer/SubViewportContainer2/SubViewport/Camera2D/CanvasLayer2" unique_id=390489709]
+texture_filter = 1
+position = Vector2(1080.113, 540.00006)
+scale = Vector2(4.6647387, 4.1698847)
+texture = ExtResource("3_fitgq")
+
 [node name="hud2" type="CanvasLayer" parent="HBoxContainer/SubViewportContainer2/SubViewport" unique_id=2102811235]
 
 [node name="PhaseAbility" type="Node2D" parent="HBoxContainer/SubViewportContainer2/SubViewport/hud2" unique_id=628619070]
@@ -434,3 +444,4 @@ text = "main menu"
 [editable path="HBoxContainer/SubViewportContainer/SubViewport/Game"]
 [editable path="HBoxContainer/SubViewportContainer/SubViewport/Game/player"]
 [editable path="HBoxContainer/SubViewportContainer/SubViewport/Game/player2"]
+[editable path="HBoxContainer/SubViewportContainer/SubViewport/Game/button2"]

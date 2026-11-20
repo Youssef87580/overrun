@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bb6dm6n0fvp05" path="res://scripts/chaindoor.gd" id="1_ijhct"]
 [ext_resource type="Texture2D" uid="uid://5a6ji2121mci" path="res://assets/chaindoor.png" id="2_ounim"]
+[ext_resource type="AudioStream" uid="uid://cthcgty0dmf36" path="res://assets/music & sound effects/dooropen.mp3" id="3_c1m4l"]
+[ext_resource type="AudioStream" uid="uid://bicap5a1dcoju" path="res://assets/music & sound effects/doorclose.mp3" id="4_nsgkt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c1m4l"]
 atlas = ExtResource("2_ounim")
@@ -108,9 +110,13 @@ script = ExtResource("1_ijhct")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1953185576]
 sprite_frames = SubResource("SpriteFrames_hyoh7")
-animation = &"stop"
+animation = &"open"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1173767733]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="." unique_id=698356408]
+stream = ExtResource("3_c1m4l")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer" parent="." unique_id=345339851]
+stream = ExtResource("4_nsgkt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1985419103]
 shape = SubResource("RectangleShape2D_hyoh7")

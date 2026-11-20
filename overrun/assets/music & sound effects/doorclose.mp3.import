@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bicap5a1dcoju"
+path="res://.godot/imported/doorclose.mp3-6ef7a1bd2dce38c8e57c2787dbee5e84.mp3str"
+
+[deps]
+
+source_file="res://assets/music & sound effects/doorclose.mp3"
+dest_files=["res://.godot/imported/doorclose.mp3-6ef7a1bd2dce38c8e57c2787dbee5e84.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

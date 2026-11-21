@@ -114,9 +114,11 @@ animation = &"open"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="." unique_id=698356408]
 stream = ExtResource("3_c1m4l")
+volume_db = -15.0
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer" parent="." unique_id=345339851]
 stream = ExtResource("4_nsgkt")
+volume_db = -15.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1985419103]
 shape = SubResource("RectangleShape2D_hyoh7")

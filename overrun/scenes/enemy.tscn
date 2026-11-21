@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ctmhunumgbrol" path="res://assets/Mushroom with VFX/Mushroom_death.png" id="2_5uy6h"]
 [ext_resource type="Texture2D" uid="uid://c6b40uuklfq8k" path="res://assets/Mushroom with VFX/mushroom_idle.png" id="2_md0e3"]
 [ext_resource type="Texture2D" uid="uid://dhqg8ycuqarq4" path="res://assets/Mushroom with VFX/mushroom_running.png" id="4_c4w8v"]
+[ext_resource type="AudioStream" uid="uid://cnufgv8h8hs8g" path="res://assets/music & sound effects/yusuf_sfx-pop-dark-amp-reverberated-496669.mp3" id="5_c4w8v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_otmr2"]
 atlas = ExtResource("2_5uy6h")
@@ -187,6 +188,9 @@ collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chasing_area" unique_id=397160857]
 shape = SubResource("CircleShape2D_hyoh7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1511465648]
+stream = ExtResource("5_c4w8v")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="chasing_area" to="." method="_on_chasing_area_body_entered"]

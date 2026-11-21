@@ -59,6 +59,7 @@ func _physics_process(delta: float) -> void:
 
 func handle_gravity_flip() -> void:
 	if Input.is_action_just_pressed("flip_gravity") and $Timer.time_left == 0:
+		$flipgravity.play()
 		gravity_direction *= -1
 		toggle_vertical_flip()
 		$hud/flip/useflip.play("flip")
@@ -81,6 +82,7 @@ func handle_jump(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or coyote_timer > 0) :
 		velocity.y = jump_velocity * gravity_direction
 		coyote_timer = 0 
+		$jump.play()
 	if Input.is_action_just_released("jump") and velocity.y * gravity_direction < 0:
 		velocity.y *= 0.5
 
@@ -130,6 +132,7 @@ func handle_phase_shift() -> void:
 		
 		
 	if phase_cooldown_timer <= 0 and not is_phased and Input.is_action_just_pressed("phase_shift"):
+		$phaseshift.play()
 		is_phased = true
 		phase_timer = phase_duration
 		modulate.a = 0.5
@@ -161,6 +164,7 @@ func repel(sign):
 	velocity.x = 200 * sign
 	velocity.y = jump_velocity * 0.5 * gravity_direction
 	repel_timer = repel_duration
+	$damage.play()
 
 
 

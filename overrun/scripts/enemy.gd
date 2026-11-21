@@ -83,6 +83,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			velocity.x = 0
 			velocity.y = -250
 			Gamemanager.kills += 1
+			$AudioStreamPlayer.play()
 			await get_tree().create_timer(3).timeout
 			queue_free()
 			

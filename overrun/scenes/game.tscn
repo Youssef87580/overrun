@@ -54,16 +54,37 @@ scale = Vector2(1, -1)
 [node name="enemies" type="Node" parent="." unique_id=1153504193]
 
 [node name="Enemy" parent="enemies" unique_id=1448714101 instance=ExtResource("5_iywne")]
-position = Vector2(2195, 482)
+position = Vector2(2195, 489)
 
 [node name="Enemy2" parent="enemies" unique_id=2090977289 instance=ExtResource("5_iywne")]
-position = Vector2(1677, 475)
+position = Vector2(1677, 489)
 
 [node name="Enemy3" parent="enemies" unique_id=1796015476 instance=ExtResource("5_iywne")]
-position = Vector2(1381, 476)
+position = Vector2(1381, 489)
+
+[node name="Enemy4" parent="enemies" unique_id=814130997 instance=ExtResource("5_iywne")]
+position = Vector2(2500, 547)
+
+[node name="Enemy5" parent="enemies" unique_id=1596307615 instance=ExtResource("5_iywne")]
+position = Vector2(2716, 547)
+
+[node name="Enemy6" parent="enemies" unique_id=873163087 instance=ExtResource("5_iywne")]
+position = Vector2(2932, 547)
+
+[node name="Enemy7" parent="enemies" unique_id=1258033174 instance=ExtResource("5_iywne")]
+position = Vector2(3108, 547)
+
+[node name="Enemy8" parent="enemies" unique_id=2061160736 instance=ExtResource("5_iywne")]
+position = Vector2(2812, 547)
+
+[node name="Enemy9" parent="enemies" unique_id=2138333540 instance=ExtResource("5_iywne")]
+position = Vector2(2604, 547)
+
+[node name="Enemy10" parent="enemies" unique_id=284602689 instance=ExtResource("5_iywne")]
+position = Vector2(2404, 547)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=262043097]
-position = Vector2(998, 1437)
+position = Vector2(998, 2099)
 script = ExtResource("6_p57ef")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=206832784]
@@ -79,8 +100,91 @@ position = Vector2(797.00006, 461)
 [node name="spike" parent="." unique_id=1040925329 instance=ExtResource("10_vtaks")]
 position = Vector2(1178, 486)
 
-[node name="spike2" parent="." unique_id=1107429899 instance=ExtResource("10_vtaks")]
+[node name="spike5" parent="." unique_id=1107429899 instance=ExtResource("10_vtaks")]
+position = Vector2(1154, 230)
+scale = Vector2(1, -1)
+
+[node name="spike6" parent="." unique_id=1416385349 instance=ExtResource("10_vtaks")]
+position = Vector2(1410, 230)
+scale = Vector2(1, -1)
+
+[node name="spike7" parent="." unique_id=1435168565 instance=ExtResource("10_vtaks")]
+position = Vector2(1250, 198)
+scale = Vector2(1, -1)
+
+[node name="spike8" parent="." unique_id=1939162865 instance=ExtResource("10_vtaks")]
+position = Vector2(946, 262)
+scale = Vector2(1, -1)
+
+[node name="spike24" parent="." unique_id=2010318002 instance=ExtResource("10_vtaks")]
+position = Vector2(808, 134)
+scale = Vector2(1, -1)
+
+[node name="spike9" parent="." unique_id=1048817097 instance=ExtResource("10_vtaks")]
+position = Vector2(1612, 198)
+scale = Vector2(1, -1)
+
+[node name="spike10" parent="." unique_id=1284475944 instance=ExtResource("10_vtaks")]
+position = Vector2(1672, 166)
+scale = Vector2(1, -1)
+
+[node name="spike11" parent="." unique_id=1650724988 instance=ExtResource("10_vtaks")]
+position = Vector2(1720, 230)
+scale = Vector2(1, -1)
+
+[node name="spike12" parent="." unique_id=1589593298 instance=ExtResource("10_vtaks")]
+position = Vector2(1896, 166)
+scale = Vector2(1, -1)
+
+[node name="spike13" parent="." unique_id=859732430 instance=ExtResource("10_vtaks")]
+position = Vector2(2040, 166)
+scale = Vector2(1, -1)
+
+[node name="spike14" parent="." unique_id=368547696 instance=ExtResource("10_vtaks")]
+position = Vector2(2184, 166)
+scale = Vector2(1, -1)
+
+[node name="spike15" parent="." unique_id=1856835769 instance=ExtResource("10_vtaks")]
+position = Vector2(2280, 166)
+scale = Vector2(1, -1)
+
+[node name="spike16" parent="." unique_id=410151327 instance=ExtResource("10_vtaks")]
+position = Vector2(2472, 294)
+scale = Vector2(1, -1)
+
+[node name="spike17" parent="." unique_id=171062558 instance=ExtResource("10_vtaks")]
+position = Vector2(2632, 230)
+scale = Vector2(1, -1)
+
+[node name="spike18" parent="." unique_id=1205571900 instance=ExtResource("10_vtaks")]
+position = Vector2(2752, 326)
+scale = Vector2(1, -1)
+
+[node name="spike19" parent="." unique_id=1503547835 instance=ExtResource("10_vtaks")]
+position = Vector2(2912, 358)
+scale = Vector2(1, -1)
+
+[node name="spike20" parent="." unique_id=1561319044 instance=ExtResource("10_vtaks")]
+position = Vector2(3080, 358)
+scale = Vector2(1, -1)
+
+[node name="spike21" parent="." unique_id=2116355235 instance=ExtResource("10_vtaks")]
+position = Vector2(3224, 326)
+scale = Vector2(1, -1)
+
+[node name="spike22" parent="." unique_id=1940828879 instance=ExtResource("10_vtaks")]
+position = Vector2(3368, 198)
+scale = Vector2(1, -1)
+
+[node name="spike23" parent="." unique_id=991568838 instance=ExtResource("10_vtaks")]
+position = Vector2(3496, 198)
+scale = Vector2(1, -1)
+
+[node name="spike2" parent="." unique_id=8902343 instance=ExtResource("10_vtaks")]
 position = Vector2(1858, 486)
+
+[node name="spike25" parent="." unique_id=1670631331 instance=ExtResource("10_vtaks")]
+position = Vector2(2026, 486)
 
 [node name="spike3" parent="." unique_id=2138298139 instance=ExtResource("10_vtaks")]
 position = Vector2(1530, 486)
@@ -103,7 +207,6 @@ text = "Try dash fast -->"
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1932355149]
 layer = -1
-visible = false
 
 [node name="DarkNightSkyWithStarlightFreeVector" type="Sprite2D" parent="CanvasLayer2" unique_id=1095753116]
 texture_filter = 1

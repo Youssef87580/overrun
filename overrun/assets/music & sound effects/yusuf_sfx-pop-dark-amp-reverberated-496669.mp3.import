@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cnufgv8h8hs8g"
+path="res://.godot/imported/yusuf_sfx-pop-dark-amp-reverberated-496669.mp3-b710a1c3fdffd3dfe3702fa9c8f83822.mp3str"
+
+[deps]
+
+source_file="res://assets/music & sound effects/yusuf_sfx-pop-dark-amp-reverberated-496669.mp3"
+dest_files=["res://.godot/imported/yusuf_sfx-pop-dark-amp-reverberated-496669.mp3-b710a1c3fdffd3dfe3702fa9c8f83822.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

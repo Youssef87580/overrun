@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://be013esullwrx" path="res://assets/purple phase shifter recharge-Sheet-Sheet.png" id="4_8l1to"]
 [ext_resource type="Texture2D" uid="uid://bvpmuw4ccqgvc" path="res://assets/flip animated-Sheet.png" id="5_hb4is"]
 [ext_resource type="AudioStream" uid="uid://bugrua03umn3l" path="res://assets/music & sound effects/dash.mp3" id="6_gmtae"]
+[ext_resource type="AudioStream" uid="uid://bxn8qlkd37je3" path="res://assets/music & sound effects/jofae-swing-whoosh-110410.mp3" id="7_8l1to"]
+[ext_resource type="AudioStream" uid="uid://bx2b1jvuq2pxk" path="res://assets/music & sound effects/flipgravity.mp3" id="8_3ejgl"]
+[ext_resource type="AudioStream" uid="uid://b17off72wgovu" path="res://assets/music & sound effects/damage.mp3" id="9_24gv0"]
+[ext_resource type="AudioStream" uid="uid://c5h0o4wulvxnk" path="res://assets/music & sound effects/phaseshift.mp3" id="10_dauvq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t4fi4"]
 atlas = ExtResource("2_hb4is")
@@ -512,5 +516,21 @@ one_shot = true
 
 [node name="dash_sound" type="AudioStreamPlayer" parent="." unique_id=1445492715]
 stream = ExtResource("6_gmtae")
+
+[node name="jump" type="AudioStreamPlayer" parent="." unique_id=1012159950]
+stream = ExtResource("7_8l1to")
+volume_db = -10.0
+
+[node name="flipgravity" type="AudioStreamPlayer" parent="." unique_id=1969115529]
+stream = ExtResource("8_3ejgl")
+volume_db = -15.0
+
+[node name="damage" type="AudioStreamPlayer" parent="." unique_id=1195221715]
+stream = ExtResource("9_24gv0")
+volume_db = -10.0
+
+[node name="phaseshift" type="AudioStreamPlayer" parent="." unique_id=833125355]
+stream = ExtResource("10_dauvq")
+volume_db = -10.0
 
 [connection signal="timeout" from="dash duration" to="." method="_on_dash_duration_timeout"]

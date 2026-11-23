@@ -17,6 +17,7 @@ func _open():
 	await get_tree().create_timer(0.5).timeout
 	collisionshape.disabled = true
 
+
 func _close():
 	animatedsprite.play_backwards()
 	await get_tree().create_timer(0.5).timeout

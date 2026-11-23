@@ -529,8 +529,10 @@ script = ExtResource("1_g2els")
 texture_filter = 1
 position = Vector2(-3, -12)
 sprite_frames = SubResource("SpriteFrames_txh2y")
-animation = &"death"
+animation = &"damage"
 autoplay = "idel"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1594519304]
 position = Vector2(0, -10.5)

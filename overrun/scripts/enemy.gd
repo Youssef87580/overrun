@@ -4,6 +4,8 @@ extends CharacterBody2D
 $"../../player/hud/hearts/HBoxContainer/Node2D2/heart2",
 $"../../player/hud/hearts/HBoxContainer/Node2D3/heart3"]
 
+@onready var collision_shape = $CollisionShape2D
+@onready var area2d_collision = $Area2D/CollisionShape2D
 
 var gravity = 980.0
 var is_chasing = false
@@ -89,6 +91,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			
 		else:
 			print("decrease health","yyyy")
+			collision_shape.set_deferred("disabled", true)
+			area2d_collision.set_deferred("disabled", true)
+			body.take_damage()
 			Gamemanager.decrease_health(hearts)
 			var sign
 			var direction = body.global_position.direction_to(global_position)
@@ -99,6 +104,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 				sign = 1
 			print(sign,"oooo")
 			body.repel(sign)
+			if Gamemanager.lives <= 0:
+				await get_tree().create_timer(2).timeout
+				collision_shape.set_deferred("disabled", false)
+				area2d_collision.set_deferred("disabled", false)
 			#body.queue_free()
 
 

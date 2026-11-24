@@ -28,6 +28,8 @@ var dash_direction = 0.0
 @onready var dash_duration = $"dash duration"
 @onready var dash_cooldown = $"dash cooldown"
 
+var is_damaged = false
+
 func _ready() -> void:
 	if Gamemanager.music == false:
 		$backmusic.stop()
@@ -58,7 +60,7 @@ func _physics_process(delta: float) -> void:
 	
 
 func handle_gravity_flip() -> void:
-	if Input.is_action_just_pressed("flip_gravity") and $Timer.time_left == 0:
+	if Input.is_action_just_pressed("flip_gravity") and $Timer.time_left == 0 and !is_damaged:
 		$flipgravity.play()
 		gravity_direction *= -1
 		toggle_vertical_flip()
@@ -88,11 +90,11 @@ func handle_jump(delta: float) -> void:
 
 func handle_horizontal_movement(delta: float) -> void:
 	var direction := Input.get_axis("move_left", "move_right")
-	if direction:
+	if direction and !is_damaged:
 		velocity.x = direction  * speed
 		$AnimatedSprite2D.flip_h = direction < 0
 		$AnimatedSprite2D.play("run")
-	else:
+	elif !is_damaged:
 		velocity.x = move_toward(velocity.x, 0, speed * delta * friction_multiplier)
 		$AnimatedSprite2D.play("idel")
 
@@ -185,3 +187,9 @@ func _on_dash_duration_timeout() -> void:
 	friction_multiplier = 50.0
 	await get_tree().create_timer(0.1).timeout
 	friction_multiplier = 10.0
+
+func take_damage():
+	$AnimatedSprite2D.play("damage")
+	is_damaged = true
+	await $AnimatedSprite2D.animation_finished
+	is_damaged = false

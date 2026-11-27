@@ -102,7 +102,7 @@ func handle_clone_spawn() -> void:
 			var clone_sprite = $AnimatedSprite2D.duplicate()
 			clone_instance.add_child(clone_sprite)
 			
-			var clone_collision = $CollisionShape2D2.duplicate()
+			var clone_collision = $CollisionShape2D.duplicate()
 			clone_instance.add_child(clone_collision)
 			
 			

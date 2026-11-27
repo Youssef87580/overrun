@@ -83,6 +83,9 @@ position = Vector2(2604, 547)
 [node name="Enemy10" parent="enemies" unique_id=284602689 instance=ExtResource("5_iywne")]
 position = Vector2(2404, 547)
 
+[node name="Enemy11" parent="enemies" unique_id=415140271 instance=ExtResource("5_iywne")]
+position = Vector2(855, 472)
+
 [node name="Area2D" type="Area2D" parent="." unique_id=262043097]
 position = Vector2(998, 2099)
 script = ExtResource("6_p57ef")

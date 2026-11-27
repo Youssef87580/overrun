@@ -91,8 +91,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			
 		else:
 			print("decrease health","yyyy")
-			collision_shape.set_deferred("disabled", true)
-			area2d_collision.set_deferred("disabled", true)
+			body.set_collision_layer_value(8, false)
+			#body.get_node("area2d_collision").set_deferred("disabled", true)
 			body.take_damage()
 			Gamemanager.decrease_health(hearts)
 			var sign
@@ -104,10 +104,15 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 				sign = 1
 			print(sign,"oooo")
 			body.repel(sign)
-			if Gamemanager.lives <= 0:
-				await get_tree().create_timer(2).timeout
-				collision_shape.set_deferred("disabled", false)
-				area2d_collision.set_deferred("disabled", false)
+			print(get_tree(),"treeeee")
+			print(is_inside_tree(),"treeeee")
+			if Gamemanager.lives > 0:
+				var tree = get_tree()
+				await tree.create_timer(2.0).timeout
+				if is_inside_tree():
+					body.set_collision_layer_value(8, true)
+				#body.get_node("collision_shape2D").set_deferred("disabled", false)
+				#body.get_node("area2d_collision").set_deferred("disabled", false)
 			#body.queue_free()
 
 

@@ -106,6 +106,8 @@ animations = [{
 size = Vector2(30, 62)
 
 [node name="chaindoor" type="StaticBody2D" unique_id=1550914656]
+collision_layer = 129
+collision_mask = 129
 script = ExtResource("1_ijhct")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1953185576]

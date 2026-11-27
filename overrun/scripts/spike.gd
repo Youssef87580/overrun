@@ -8,8 +8,9 @@ $"../player/hud/hearts/HBoxContainer/Node2D3/heart3"]
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("players"):
-		collision_shape.set_deferred("disabled", true)
-		area2d_collision.set_deferred("disabled", true)
+		body.set_collision_layer_value(8, false)
+		#collision_shape.set_deferred("disabled", true)
+		#area2d_collision.set_deferred("disabled", true)
 		body.take_damage()
 		Gamemanager.decrease_health(hearts)
 		var sign
@@ -19,7 +20,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		else:
 			sign = 1.2
 		body.repel(sign)
-		if Gamemanager.lives <= 0:
+		print(get_tree(),"treeeee")
+		print(is_inside_tree(),"treeeee")
+		if Gamemanager.lives > 0:
 			await get_tree().create_timer(2).timeout
-			collision_shape.set_deferred("disabled", false)
-			area2d_collision.set_deferred("disabled", false)
+			body.set_collision_layer_value(8, true)
+			#collision_shape.set_deferred("disabled", false)
+			#area2d_collision.set_deferred("disabled", false)

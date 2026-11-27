@@ -462,7 +462,7 @@ animations = [{
 
 [node name="player" type="CharacterBody2D" unique_id=1788484758 groups=["players"]]
 z_index = 1
-collision_layer = 517
+collision_layer = 645
 collision_mask = 517
 script = ExtResource("1_dj65e")
 
@@ -473,7 +473,7 @@ sprite_frames = SubResource("SpriteFrames_txh2y")
 animation = &"idel"
 autoplay = "idel"
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1678512705]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1678512705]
 position = Vector2(0, -11.5)
 shape = SubResource("RectangleShape2D_hb4is")
 

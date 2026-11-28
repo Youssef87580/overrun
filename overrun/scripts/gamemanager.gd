@@ -13,10 +13,9 @@ func decrease_health(hearts):
 			hearts[i].play("heart")
 		else:
 			hearts[i].play("broken_heart")
-	if lives == 0:
-		lives = 3
-		get_tree().reload_current_scene()
-		
+	#if lives <= 0:
+		#lives = 3
+		#get_tree().reload_current_scene()
 
 
 

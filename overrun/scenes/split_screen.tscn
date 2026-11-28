@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bvpmuw4ccqgvc" path="res://assets/flip animated-Sheet.png" id="5_utmev"]
 [ext_resource type="Script" uid="uid://b5itydx11ronx" path="res://scripts/pause_panel.gd" id="6_1rr1x"]
 [ext_resource type="FontFile" uid="uid://djwlv3y6q6dkn" path="res://fonts/PressStart2P-Regular.ttf" id="6_1ycwb"]
+[ext_resource type="Script" uid="uid://bx7frd8vw0h3u" path="res://scripts/death_panel.gd" id="9_buhwv"]
 
 [sub_resource type="GDScript" id="GDScript_dqkch"]
 script/source = "extends Node2D
@@ -438,8 +439,77 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_fitgq")
 theme_override_styles/hover = SubResource("StyleBoxFlat_buhwv")
 text = "main menu"
 
+[node name="death panel" type="Panel" parent="CanvasLayer" unique_id=2139688917]
+process_mode = 3
+visible = false
+offset_left = 153.0
+offset_top = 105.0
+offset_right = 1850.0
+offset_bottom = 916.0
+script = ExtResource("9_buhwv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/death panel" unique_id=139003080]
+layout_mode = 0
+offset_left = 505.0
+offset_top = 273.0
+offset_right = 1297.0
+offset_bottom = 633.0
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="CanvasLayer/death panel/VBoxContainer" unique_id=661414389]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("6_1ycwb")
+theme_override_font_sizes/font_size = 72
+text = "GAME OVER"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/death panel/VBoxContainer" unique_id=1412828759]
+layout_mode = 2
+theme_override_constants/margin_top = 60
+
+[node name="Try again" type="Button" parent="CanvasLayer/death panel/VBoxContainer" unique_id=703076933]
+process_mode = 3
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_constants/h_separation = 40
+theme_override_fonts/font = ExtResource("6_1ycwb")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_1rr1x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fitgq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_buhwv")
+text = "try again"
+
+[node name="options" type="Button" parent="CanvasLayer/death panel/VBoxContainer" unique_id=165636435]
+process_mode = 3
+visible = false
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_constants/h_separation = 40
+theme_override_fonts/font = ExtResource("6_1ycwb")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_1rr1x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fitgq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_buhwv")
+text = "options"
+
+[node name="main menu" type="Button" parent="CanvasLayer/death panel/VBoxContainer" unique_id=286853511]
+process_mode = 3
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_constants/h_separation = 40
+theme_override_fonts/font = ExtResource("6_1ycwb")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_1rr1x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fitgq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_buhwv")
+text = "main menu"
+
 [connection signal="pressed" from="CanvasLayer/pause panel/VBoxContainer/resume" to="CanvasLayer/pause panel" method="_on_resume_pressed"]
 [connection signal="pressed" from="CanvasLayer/pause panel/VBoxContainer/main menu" to="CanvasLayer/pause panel" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/death panel/VBoxContainer/Try again" to="CanvasLayer/death panel" method="_on_try_again_pressed"]
+[connection signal="pressed" from="CanvasLayer/death panel/VBoxContainer/main menu" to="CanvasLayer/death panel" method="_on_main_menu_pressed"]
 
 [editable path="HBoxContainer/SubViewportContainer/SubViewport/Game"]
 [editable path="HBoxContainer/SubViewportContainer/SubViewport/Game/player"]

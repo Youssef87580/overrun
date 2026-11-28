@@ -19,6 +19,7 @@ func _open():
 
 
 func _close():
-	animatedsprite.play_backwards()
-	await get_tree().create_timer(0.5).timeout
-	collisionshape.disabled = false
+	if Gamemanager.lives > 0 and is_inside_tree():
+		animatedsprite.play_backwards()
+		await get_tree().create_timer(0.5).timeout
+		collisionshape.disabled = false

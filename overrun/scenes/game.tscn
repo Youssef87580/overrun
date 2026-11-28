@@ -12,9 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://ckfgwy51527ew" path="res://scenes/spike.tscn" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://btisak0qr21ph" path="res://scenes/chaindoor.tscn" id="11_dinhu"]
 [ext_resource type="Texture2D" uid="uid://cpli6s7h6le76" path="res://assets/images/pixel-art-night-sky-background-260nw-2560132523.jpg" id="11_kvpfn"]
+[ext_resource type="Script" uid="uid://c73751uyr2jc2" path="res://scenes/area_2d_2.gd" id="13_kvuet"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_14o5u"]
 distance = -3.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hn8rt"]
+size = Vector2(96, 158)
 
 [node name="Game" type="Node2D" unique_id=2063107461]
 
@@ -223,6 +227,14 @@ offset_top = -1005.0
 offset_right = 7278.0
 offset_bottom = 2892.0
 
+[node name="Area2D2" type="Area2D" parent="." unique_id=818321477]
+position = Vector2(5480, 622)
+script = ExtResource("13_kvuet")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=373514058]
+position = Vector2(1, -7)
+shape = SubResource("RectangleShape2D_hn8rt")
+
 [connection signal="pressed" from="button" to="gate" method="_open"]
 [connection signal="released" from="button" to="gate" method="_close"]
 [connection signal="pressed" from="button2" to="gate" method="_open"]
@@ -230,6 +242,7 @@ offset_bottom = 2892.0
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="pressed" from="button3" to="chaindoor" method="_open"]
 [connection signal="released" from="button3" to="chaindoor" method="_close"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
 
 [editable path="player"]
 [editable path="player2"]

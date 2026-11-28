@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://daswpftsbx6tk"]
+
+[ext_resource type="FontFile" uid="uid://djwlv3y6q6dkn" path="res://fonts/PressStart2P-Regular.ttf" id="1_p78a6"]
+
+[node name="WinScene" type="Node2D" unique_id=2088066448]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=166115006]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1422509302]
+offset_right = 2760.0
+offset_bottom = 1514.0
+color = Color(0.6578363, 0.15586737, 0.15586737, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1895333148]
+offset_left = 840.0
+offset_top = 107.0
+offset_right = 1344.0
+offset_bottom = 179.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("1_p78a6")
+theme_override_font_sizes/font_size = 50
+text = "overrun"
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=1628475104]
+offset_left = 493.0
+offset_top = 22.0
+offset_right = 1717.0
+offset_bottom = 94.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("1_p78a6")
+theme_override_font_sizes/font_size = 50
+text = "gongrats, you won"
+
+[node name="Label3" type="Label" parent="CanvasLayer" unique_id=1869744366]
+custom_maximum_size = Vector2(1200.355, 1000)
+offset_left = 394.0
+offset_top = 222.0
+offset_right = 1594.355
+offset_bottom = 1006.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("1_p78a6")
+theme_override_font_sizes/font_size = 50
+text = "made by: 
+
+The_kim_dokja
+RemagoFF
+
+thanks to us to do all this effort just to make this cool game 👾
+
+
+
+the game is under development..."
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="CanvasLayer" unique_id=1308753442]
+custom_maximum_size = Vector2(1200, 1000)
+offset_left = 736.0
+offset_top = 1044.0
+offset_right = 1936.0
+offset_bottom = 1069.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("1_p78a6")
+theme_override_font_sizes/font_size = 25
+text = "what are you waiting for? leave the game or press alt+f4"

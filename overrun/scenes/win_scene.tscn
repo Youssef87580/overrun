@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://daswpftsbx6tk"]
 
 [ext_resource type="FontFile" uid="uid://djwlv3y6q6dkn" path="res://fonts/PressStart2P-Regular.ttf" id="1_p78a6"]
+[ext_resource type="Texture2D" uid="uid://c1qok7ae3k7eq" path="res://assets/icon.svg" id="2_aw8vk"]
 
 [node name="WinScene" type="Node2D" unique_id=2088066448]
 
@@ -70,3 +71,7 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/font = ExtResource("1_p78a6")
 theme_override_font_sizes/font_size = 25
 text = "what are you waiting for? leave the game or press alt+f4"
+
+[node name="Icon" type="Sprite2D" parent="CanvasLayer" unique_id=1953038966]
+position = Vector2(1876, 170)
+texture = ExtResource("2_aw8vk")

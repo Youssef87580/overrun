@@ -306,6 +306,9 @@ render_target_update_mode = 4
 
 [node name="Game" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=2063107461 instance=ExtResource("1_ahfsy")]
 
+[node name="backmusic" parent="HBoxContainer/SubViewportContainer/SubViewport/Game/player" parent_id_path=PackedInt32Array(2063107461, 1788484758) index="7" unique_id=838137602]
+volume_db = -10.0
+
 [node name="useflip" parent="HBoxContainer/SubViewportContainer/SubViewport/Game/player2/hud/flip" parent_id_path=PackedInt32Array(2063107461, 1199560895, 749783544) index="0" unique_id=1844286950]
 position = Vector2(1207, 37)
 
